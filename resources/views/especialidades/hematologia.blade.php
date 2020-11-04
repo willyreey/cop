@@ -1,4 +1,5 @@
 @extends('template')
+@section("meta")
 
     <meta name="description" content="CENTRO HEMATOLOGICO DE SAN BERNARDINO, SERVICIO MEDICO ESPECIALISTA EN HEMATOLOGÍA, EMERGENCIAS HEMATOLOGICAS, MEDICOS HEMATOLOGICOS CON AMPLIA TRAYECTORIA, CONTAMOS CON HOSPILAIZACION PARA PACIENTES CON AFECIONES HEMATOLOGICAS, CLINICA HEMATOLOGICA EN SAN BERNARDINO, EXAMENES HEMATOLOGICOS 24 HORAS, CITAS DE HEMATOLOGÍA, CONSULTORIOS PARA CITAS DE HEMATOLOGÍA, SALA DE EMERGENCIA EN HEMATOLOGÍA , CENTRO MEDICO EN HEMATOLOGÍA, MEDICOS HEMATOLOGICOS QUIRURGICOS EN SAN BERNARDINO, ESPECIALISTAS EN HEMATOLOGÍA,  UNIDAD DE HEMATOLOGÍA EN CARACAS, CLINICA HEMATOLOGÍA EN CARACAS VENEZUELA, MEDICOS HEMATOLOGICOS EN CARACAS VENEZUELA, CLINICA PODOLOGICA Y ORTOPEDICAS EN CARACAS, HEMATOLOGICOS EN CARACAS- MEDICOS  HEMATOLOGICOS EN CARACAS VENEZUELA, EMERGENCIA MEDICA PODOLOGICA, HEMATOLOGICOS EN SAN BENADINO CARACAS VENEZUALA, CENTRO PODOLOGICO, COP.">
 
@@ -6,7 +7,7 @@
 
     <title>COP- CENTRO HEMATOLOGÍCO SAN BERNARDINO, MEDICOS HEMATOLOGOS - CLINICA  PODOLOGICO</title>
 
-
+@endsection
 @section("content")
 
         <div class="row">
@@ -104,7 +105,7 @@
     <input type="checkbox"> Acepto los Términos y Condiciones
   </div>
     <div class="form-group">
-        <button type="button" class="btn btn-primary">ENVIAR</button>
+        <button type="button" onclick="return mensajepr()" class="btn btn-primary">ENVIAR</button>
   </div>
 </form>
 <div class="p-2"></div>
@@ -137,6 +138,6 @@
 @endsection
 
 @section("footer")
-CENTRO HEMATOLOGICO DE SAN BERNARDINO - SERVICIO MEDICO ESPECIALISTA EN HEMATOLOGÍA - EMERGENCIAS HEMATOLOGICAS - MEDICOS HEMATOLOGICOS CON AMPLIA TRAYECTORIA - CONTAMOS CON HOSPILAIZACION PARA PACIENTES CON AFECIONES HEMATOLOGICAS - CLINICA HEMATOLOGICA EN SAN BERNARDINO - EXAMENES HEMATOLOGICOS 24 HORAS - CITAS DE HEMATOLOGÍA - CONSULTORIOS PARA CITAS DE HEMATOLOGÍA - SALA DE EMERGENCIA EN HEMATOLOGÍA  - CENTRO MEDICO EN HEMATOLOGÍA - MEDICOS HEMATOLOGICOS QUIRURGICOS EN SAN BERNARDINO - ESPECIALISTAS EN HEMATOLOGÍA -  UNIDAD DE HEMATOLOGÍA EN CARACAS - CLINICA HEMATOLOGÍA EN CARACAS VENEZUELA - MEDICOS HEMATOLOGICOS EN CARACAS VENEZUELA - CLINICA PODOLOGICA Y ORTOPEDICAS EN CARACAS - HEMATOLOGICOS EN CARACAS- MEDICOS  HEMATOLOGICOS EN CARACAS VENEZUELA - EMERGENCIA MEDICA PODOLOGICA - HEMATOLOGICOS EN SAN BENADINO CARACAS VENEZUALA - CENTRO PODOLOGICO - COP.
+Centro Hematologico De San Bernardino - Servicio Medico Especialista En Hematología - Emergencias Hematologicas - Medicos Hematologicos Con Amplia Trayectoria - Contamos Con Hospilaizacion Para Pacientes Con Afeciones Hematologicas - Clinica Hematologica En San Bernardino - Examenes Hematologicos 24 Horas - Citas De Hematología - Consultorios Para Citas De Hematología - Sala De Emergencia En Hematología  - Centro Medico En Hematología - Medicos Hematologicos Quirurgicos En San Bernardino - Especialistas En Hematología -  Unidad De Hematología En Caracas - Clinica Hematología En Caracas Venezuela - Medicos Hematologicos En Caracas Venezuela - Clinica Podologica Y Ortopedicas En Caracas - Hematologicos En Caracas- Medicos  Hematologicos En Caracas Venezuela - Emergencia Medica Podologica - Hematologicos En San Benadino Caracas Venezuala - Centro Podologico - Cop.
 
 @endsection

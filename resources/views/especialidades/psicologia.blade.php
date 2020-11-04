@@ -1,4 +1,5 @@
 @extends('template')
+@section("meta")
 
     <meta name="description" content="CENTRO PSICOLOGICO DE SAN BERNARDINO, SERVICIO MEDICO ESPECIALISTA EN PSICOLOGÍA, EMERGENCIAS PSICOLOGICAS, MEDICOS PSICOLOGICOS CON AMPLIA TRAYECTORIA, CONTAMOS CON HOSPILAIZACION PARA PACIENTES CON AFECIONES PSICOLOGICAS, CLINICA PSICOLOGICA EN SAN BERNARDINO, EXAMENES PSICOLOGICOS 24 HORAS, CITAS DE PSICOLOGÍA, CONSULTORIOS PARA CITAS DE PSICOLOGÍA, SALA DE EMERGENCIA EN PSICOLOGÍA , CENTRO MEDICO EN PSICOLOGÍA, MEDICOS PSICOLOGICOS QUIRURGICOS EN SAN BERNARDINO, ESPECIALISTAS EN PSICOLOGÍA,  UNIDAD DE PSICOLOGÍA EN CARACAS, CLINICA PSICOLOGÍA EN CARACAS VENEZUELA, MEDICOS PSICOLOGICOS EN CARACAS VENEZUELA, CLINICA PODOLOGICA Y ORTOPEDICAS EN CARACAS, PSICOLOGICOS EN CARACAS- MEDICOS  PSICOLOGICOS EN CARACAS VENEZUELA, EMERGENCIA MEDICA PODOLOGICA, PSICOLOGICOS EN SAN BENADINO CARACAS VENEZUALA, CENTRO PODOLOGICO, COP.">
 
@@ -6,7 +7,7 @@
 
     <title>COP- CENTRO DE PSICOLOGÍA SAN BERNARDINO, MEDICOS EN PSICOLOGÍA - CLINICA  PODOLOGICO</title>
 
-
+@endsection
 @section("content")
 
         <div class="row">
@@ -99,7 +100,7 @@
     <input type="checkbox"> Acepto los Términos y Condiciones
   </div>
     <div class="form-group">
-        <button type="button" class="btn btn-primary">ENVIAR</button>
+        <button type="button" onclick="return mensajepr()" class="btn btn-primary">ENVIAR</button>
   </div>
 </form>
 <div class="p-2"></div>
@@ -132,5 +133,5 @@
 @endsection
 
 @section("footer")
-CENTRO PSICOLOGICO DE SAN BERNARDINO - SERVICIO MEDICO ESPECIALISTA EN PSICOLOGÍA - EMERGENCIAS PSICOLOGICAS - MEDICOS PSICOLOGICOS CON AMPLIA TRAYECTORIA - CONTAMOS CON HOSPILAIZACION PARA PACIENTES CON AFECIONES PSICOLOGICAS - CLINICA PSICOLOGICA EN SAN BERNARDINO - EXAMENES PSICOLOGICOS 24 HORAS - CITAS DE PSICOLOGÍA - CONSULTORIOS PARA CITAS DE PSICOLOGÍA - SALA DE EMERGENCIA EN PSICOLOGÍA  - CENTRO MEDICO EN PSICOLOGÍA - MEDICOS PSICOLOGICOS QUIRURGICOS EN SAN BERNARDINO - ESPECIALISTAS EN PSICOLOGÍA -  UNIDAD DE PSICOLOGÍA EN CARACAS - CLINICA PSICOLOGÍA EN CARACAS VENEZUELA - MEDICOS PSICOLOGICOS EN CARACAS VENEZUELA - CLINICA PODOLOGICA Y ORTOPEDICAS EN CARACAS - PSICOLOGICOS EN CARACAS- MEDICOS  PSICOLOGICOS EN CARACAS VENEZUELA - EMERGENCIA MEDICA PODOLOGICA - PSICOLOGICOS EN SAN BENADINO CARACAS VENEZUALA - CENTRO PODOLOGICO - COP.
+Centro Psicologico De San Bernardino - Servicio Medico Especialista En Psicología - Emergencias Psicologicas - Medicos Psicologicos Con Amplia Trayectoria - Contamos Con Hospilaizacion Para Pacientes Con Afeciones Psicologicas - Clinica Psicologica En San Bernardino - Examenes Psicologicos 24 Horas - Citas De Psicología - Consultorios Para Citas De Psicología - Sala De Emergencia En Psicología  - Centro Medico En Psicología - Medicos Psicologicos Quirurgicos En San Bernardino - Especialistas En Psicología -  Unidad De Psicología En Caracas - Clinica Psicología En Caracas Venezuela - Medicos Psicologicos En Caracas Venezuela - Clinica Podologica Y Ortopedicas En Caracas - Psicologicos En Caracas- Medicos  Psicologicos En Caracas Venezuela - Emergencia Medica Podologica - Psicologicos En San Benadino Caracas Venezuala - Centro Podologico - Cop.
 @endsection

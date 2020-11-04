@@ -1,4 +1,5 @@
 @extends('template')
+@section("meta")
 
     <meta name="description" content="CENTRO PEDIATRICO DE SAN BERNARDINO, SERVICIO MEDICO ESPECIALISTA EN PEDIATRÍA, EMERGENCIAS PEDIATRICAS, MEDICOS PEDIATRICOS CON AMPLIA TRAYECTORIA, CONTAMOS CON HOSPILAIZACION PARA PACIENTES CON AFECIONES PEDIATRICAS, CLINICA PEDIATRICA EN SAN BERNARDINO, EXAMENES PEDIATRICOS 24 HORAS, CITAS DE PEDIATRÍA, CONSULTORIOS PARA CITAS DE PEDIATRÍA, SALA DE EMERGENCIA EN PEDIATRÍA , CENTRO MEDICO EN PEDIATRÍA, MEDICOS PEDIATRICOS QUIRURGICOS EN SAN BERNARDINO, ESPECIALISTAS EN PEDIATRÍA,  UNIDAD DE PEDIATRÍA EN CARACAS, CLINICA PEDIATRÍA EN CARACAS VENEZUELA, MEDICOS PEDIATRICOS EN CARACAS VENEZUELA, CLINICA PODOLOGICA Y ORTOPEDICAS EN CARACAS, PEDIATRICOS EN CARACAS- MEDICOS  PEDIATRICOS EN CARACAS VENEZUELA, EMERGENCIA MEDICA PODOLOGICA, PSICOLOGICOS EN SAN BENADINO CARACAS VENEZUALA, CENTRO PODOLOGICO, COP.">
 
@@ -6,7 +7,7 @@
 
     <title>COP- CENTRO PEDIÁTRICO SAN BERNARDINO, MEDICOS EN PEDIÁTRICO - CLINICA  PODOLOGICO</title>
 
-
+@endsection
 @section("content")
 
  <div class="row">
@@ -99,7 +100,7 @@
     <input type="checkbox"> Acepto los Términos y Condiciones
   </div>
     <div class="form-group">
-        <button type="button" class="btn btn-primary">ENVIAR</button>
+        <button type="button" onclick="return mensajepr()" class="btn btn-primary">ENVIAR</button>
   </div>
 </form>
 <div class="p-2"></div>
@@ -132,5 +133,5 @@
 @endsection
 
 @section("footer")
-CENTRO PEDIATRICO DE SAN BERNARDINO - SERVICIO MEDICO ESPECIALISTA EN PEDIATRÍA - EMERGENCIAS PEDIATRICAS - MEDICOS PEDIATRICOS CON AMPLIA TRAYECTORIA - CONTAMOS CON HOSPILAIZACION PARA PACIENTES CON AFECIONES PEDIATRICAS - CLINICA PEDIATRICA EN SAN BERNARDINO - EXAMENES PEDIATRICOS 24 HORAS - CITAS DE PEDIATRÍA - CONSULTORIOS PARA CITAS DE PEDIATRÍA - SALA DE EMERGENCIA EN PEDIATRÍA  - CENTRO MEDICO EN PEDIATRÍA - MEDICOS PEDIATRICOS QUIRURGICOS EN SAN BERNARDINO - ESPECIALISTAS EN PEDIATRÍA -  UNIDAD DE PEDIATRÍA EN CARACAS - CLINICA PEDIATRÍA EN CARACAS VENEZUELA - MEDICOS PEDIATRICOS EN CARACAS VENEZUELA - CLINICA PODOLOGICA Y ORTOPEDICAS EN CARACAS - PEDIATRICOS EN CARACAS- MEDICOS  PEDIATRICOS EN CARACAS VENEZUELA - EMERGENCIA MEDICA PODOLOGICA - PSICOLOGICOS EN SAN BENADINO CARACAS VENEZUALA - CENTRO PODOLOGICO - COP.
+Centro Pediatrico De San Bernardino - Servicio Medico Especialista En Pediatría - Emergencias Pediatricas - Medicos Pediatricos Con Amplia Trayectoria - Contamos Con Hospilaizacion Para Pacientes Con Afeciones Pediatricas - Clinica Pediatrica En San Bernardino - Examenes Pediatricos 24 Horas - Citas De Pediatría - Consultorios Para Citas De Pediatría - Sala De Emergencia En Pediatría  - Centro Medico En Pediatría - Medicos Pediatricos Quirurgicos En San Bernardino - Especialistas En Pediatría -  Unidad De Pediatría En Caracas - Clinica Pediatría En Caracas Venezuela - Medicos Pediatricos En Caracas Venezuela - Clinica Podologica Y Ortopedicas En Caracas - Pediatricos En Caracas- Medicos  Pediatricos En Caracas Venezuela - Emergencia Medica Podologica - Psicologicos En San Benadino Caracas Venezuela - Centro Podologico - Cop.
 @endsection

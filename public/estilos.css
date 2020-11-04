@@ -165,4 +165,29 @@ background: radial-gradient(circle, rgba(45,181,222,1) 12%, rgba(255,255,255,1) 
     background: rgba(0, 0, 0, .4);
     color:white;
 }
+/*-----------------o--------------imagen de telavip--------------o-----------------o-------------o*/
 
+  .imgseguros{
+     width: 200px; 
+    height: 100px;
+    }
+
+/*-----------------o--------------imagen de telavip--------------o-----------------o-------------o*/
+/*-----------------o--------------imagen de seguros--------------o-----------------o-------------o*/
+
+  .imagenseguros{
+   width: 90px; 
+    height: 60px;
+  }
+  .carousel-control-prev-icon,
+.carousel-control-next-icon {
+  height: 50px;
+  width: 50px;
+  outline: black;
+  background-size: 50%, 50%;
+  background-color: #667ab3;
+  color: red; 
+
+
+}
+/*-----------------o--------------imagen de seguros--------------o-----------------o-------------o*/

@@ -1,11 +1,12 @@
 @extends('template')
+@section("meta")
 
     <meta name="description" content="Medicina interna, Medicina Pediátrica, Medicina en San Bernardino, Medicina en Caracas, Centro de Medicina en Caracas, Medicina en Caracas, Medicina COP, Consultas de medicina interna , Mejor doctor de Venezuela, Cardiologo en Caracas, Medicina interna en San Benardino,  Especialidades de la medicina interna.">
 
      <meta name="keywords" content="CENTRO, MEDICINA INTERNA,SAN BERNADINO, SERVICIO, MEDICO, ESPECIALISTA, MEDICINA INTERNA, PIE Y MANOS, EMERGENCIAS, MEDICINA INTERNA, CIRUGIAS, EMERGENCIA, MEDICINA INTERNAS, MEDICOS, MEDICINA INTERNAS, CLINICA, MEDICINA INTERNA, PODOLOGICA, SAN BERNARDINO, CITAS, MEDICINA INTERNA, CONSULTORIOS, CITAS,MEDICINA INTERNA, SALA DE EMERGENCIA, MEDICINA INTERNA, SALA DE YESO Y PROTESIS, CENTRO, MEDICO, MEDICINA INTERNA,  MEDICOS, MEDICINA INTERNAS, QUIRURGICOS,  ESPECIALISTAS, MEDICINA INTERNA, CIRUGIA, COLUMNA, PIES, MANOS, BRAZOS, RODILLAS, UNIDAD, MEDICINA INTERNA, CARACAS, VENEZUELA, CLINICA, MEDICINA INTERNA, CARACAS, VENEZUELA, MEDICOS, MEDICINA INTERNAS, MEDICINA INTERNAS EN CARACAS VENEZUELA- CLINICA MEDICINA INTERNA, CARACAS,MEDICINA INTERNAS,MEDICOS, CIRUJANOS, MEDICINA INTERNAS, CARACAS - VENEZUELA, EMERGENCIA, MEDICA, PODOLOGICA, TRAUMA, QUIRURGICAS, PSICOLOGICOS, SAN BENADINO, CARACAS, VENEZUALA , CENTRO, PODOLOGICO,  COP">
 
     <title>COP- MÉDICINA INTERNA - CLINICA  PODOLOGICO</title>
-
+@endsection
 
 @section("content")
 
@@ -98,7 +99,7 @@
     <input type="checkbox"> Acepto los Términos y Condiciones
   </div>
     <div class="form-group">
-        <button type="button" class="btn btn-primary">ENVIAR</button>
+        <button type="button" onclick="return mensajepr()" class="btn btn-primary">ENVIAR</button>
   </div>
 </form>
 <div class="p-2"></div>

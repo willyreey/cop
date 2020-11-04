@@ -1,11 +1,12 @@
 @extends('template')
+@section("meta")
 
     <meta name="description" content="Podología Médica, Podología Pediátrica, Podología en San Bernardino, Podología en Caracas, Centro de Podología en Caracas, Podología en Caracas, Podología COP, Doctores Podologos, Medicos Podologos, Mejor Podologo de Venezuela, Podologo en Caracas, Podologos en San Bernardino, Podologos Infantiles, Especialidad Podología, Ortopedía Médica, Ortopedía Pediátrica, Ortopedía en San Bernardino, Ortopedía en Caracas, Centro de Ortopedía en Caracas, Ortopedía en Caracas, Ortopedía COP, Doctores Ortopedicos, Medicos Ortopedicos, Mejor Ortopedico de Venezuela, Ortopedico en Caracas, Ortopedicos en San Bernardino, Ortopedicos Infantiles, Especialidad Ortopedía.">
 
      <meta name="keywords" content="CENTRO, PODOLOGICO,SAN BERNADINO, SERVICIO, MEDICO, ESPECIALISTA, PODOLOGÍA, PIE Y MANOS, EMERGENCIAS, PODOLOGICA, CIRUGIAS, EMERGENCIA, PODOLOGICAS, MEDICOS, PODOLOGICOS, CLINICA, PODOLOGICA, PODOLOGICA, SAN BERNARDINO, CITAS, PODOLOGÍA, CONSULTORIOS, CITAS,PODOLOGÍA, SALA DE EMERGENCIA, PODOLOGÍA, SALA DE YESO Y PROTESIS, CENTRO, MEDICO, PODOLOGÍA,  MEDICOS, PODOLOGICOS, QUIRURGICOS,  ESPECIALISTAS, PODOLOGÍA, CIRUGIA, COLUMNA, PIES, MANOS, BRAZOS, RODILLAS, UNIDAD, PODOLOGÍA, CARACAS, VENEZUELA, CLINICA, PODOLOGÍA, CARACAS, VENEZUELA, MEDICOS, PODOLOGICOS, PODOLOGICOS EN CARACAS VENEZUELA- CLINICA PODOLOGICA, CARACAS,PODOLOGICOS,MEDICOS, CIRUJANOS, PODOLOGICOS, CARACAS - VENEZUELA, EMERGENCIA, MEDICA, PODOLOGICA, TRAUMA, QUIRURGICAS, PODOLOGICOS, SAN BENADINO, CARACAS, VENEZUALA , CENTRO, PODOLOGICO,  COP">
 
     <title>COP- CENTRO PODOLOGICO SAN BERNARDINO, MEDICOS EN PODOLOGÍA - CLINICA  PODOLOGICO</title>
-
+@endsection
 @section("content")
 
 <div class="row">
@@ -98,7 +99,7 @@
     <input type="checkbox"> Acepto los Términos y Condiciones
   </div>
     <div class="form-group">
-        <button type="button" class="btn btn-primary">ENVIAR</button>
+        <button type="button" onclick="return mensajepr()" class="btn btn-primary">ENVIAR</button>
   </div>
 </form>
 <div class="p-2"></div>

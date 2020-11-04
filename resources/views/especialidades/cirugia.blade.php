@@ -1,11 +1,12 @@
 @extends('template')
+@section("meta")
 
     <meta name="description" content="Cirugía Médica, Cirugía Pediátrica, Cirugía en San Bernardino, Cirujanos en Caracas, Centro de Cirujanos en Caracas, Cirugía en Caracas, Cirugía COP, Doctores Cirujanos, Medicos Cirujanos, Mejor Cirujano de Venezuela, Cirujano en Caracas, Cirujia Plastica, Cirugía General, Cirugía de Emergencia, Cirugía Quirúrgica.">
 
      <meta name="keywords" content="CENTRO, PSICOLOGICO,SAN BERNADINO, SERVICIO, MEDICO, ESPECIALISTA, PSICOLOGÍA, PIE Y MANOS, EMERGENCIAS, PSICOLOGICA, CIRUGIAS, EMERGENCIA, PSICOLOGICAS, MEDICOS, PSICOLOGICOS, CLINICA, PSICOLOGICA, PODOLOGICA, SAN BERNARDINO, CITAS, PSICOLOGÍA, CONSULTORIOS, CITAS,PSICOLOGÍA, SALA DE EMERGENCIA, PSICOLOGÍA, SALA DE YESO Y PROTESIS, CENTRO, MEDICO, PSICOLOGÍA,  MEDICOS, PSICOLOGICOS, QUIRURGICOS,  ESPECIALISTAS, PSICOLOGÍA, CIRUGIA, COLUMNA, PIES, MANOS, BRAZOS, RODILLAS, UNIDAD, PSICOLOGÍA, CARACAS, VENEZUELA, CLINICA, PSICOLOGÍA, CARACAS, VENEZUELA, MEDICOS, PSICOLOGICOS, PSICOLOGICOS EN CARACAS VENEZUELA- CLINICA PSICOLOGICA, CARACAS,PSICOLOGICOS,MEDICOS, CIRUJANOS, PSICOLOGICOS, CARACAS - VENEZUELA, EMERGENCIA, MEDICA, PODOLOGICA, TRAUMA, QUIRURGICAS, PSICOLOGICOS, SAN BENADINO, CARACAS, VENEZUALA , CENTRO, PODOLOGICO,  COP">
 
     <title>COP- CENTRO CIRUJANO SAN BERNARDINO, CIRUGÍA EN GENERAL - CLINICA  PODOLOGICO</title>
-
+@endsection
 @section("content")
 
  <div class="row">
@@ -98,7 +99,7 @@
     <input type="checkbox"> Acepto los Términos y Condiciones
   </div>
     <div class="form-group">
-        <button type="button" class="btn btn-primary">ENVIAR</button>
+        <button type="button" onclick="return mensajepr()" class="btn btn-primary">ENVIAR</button>
   </div>
 </form>
 <div class="p-2"></div>

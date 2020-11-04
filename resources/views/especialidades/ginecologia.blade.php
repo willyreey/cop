@@ -1,4 +1,5 @@
 @extends('template')
+@section("meta")
 
     <meta name="description" content="CENTRO GINECOLOGICO DE SAN BERNARDINO, SERVICIO MEDICO ESPECIALISTA EN GINECOLOGÍA, EMERGENCIAS GINECOLOGICAS, MEDICOS GINECOLOGICOS CON AMPLIA TRAYECTORIA, CONTAMOS CON HOSPILAIZACION PARA PACIENTES CON AFECIONES GINECOLOGICAS, CLINICA GINECOLOGICA EN SAN BERNARDINO, EXAMENES GINECOLOGICOS 24 HORAS, CITAS DE GINECOLOGÍA, CONSULTORIOS PARA CITAS DE GINECOLOGÍA, SALA DE EMERGENCIA EN GINECOLOGÍA , CENTRO MEDICO EN GINECOLOGÍA, MEDICOS GINECOLOGICOS QUIRURGICOS EN SAN BERNARDINO, ESPECIALISTAS EN GINECOLOGÍA,  UNIDAD DE GINECOLOGÍA EN CARACAS, CLINICA GINECOLOGÍA EN CARACAS VENEZUELA, MEDICOS GINECOLOGICOS EN CARACAS VENEZUELA, CLINICA PODOLOGICA Y ORTOPEDICAS EN CARACAS, GINECOLOGICOS EN CARACAS- MEDICOS  GINECOLOGICOS EN CARACAS VENEZUELA, EMERGENCIA MEDICA PODOLOGICA, GINECOLOGICOS EN SAN BENADINO CARACAS VENEZUALA, CENTRO PODOLOGICO, COP.">
 
@@ -6,7 +7,7 @@
 
     <title>COP- CENTRO GINECOLOGICO SAN BERNARDINO, MEDICOS EN GINECOLOGÍA - CLINICA  PODOLOGICO</title>
 
-
+@endsection
 @section("content")
 
         <div class="row">
@@ -101,7 +102,7 @@
     <input type="checkbox"> Acepto los Términos y Condiciones
   </div>
     <div class="form-group">
-        <button type="button" class="btn btn-primary">ENVIAR</button>
+        <button type="button" onclick="return mensajepr()" class="btn btn-primary">ENVIAR</button>
   </div>
 </form>
 <div class="p-2"></div>
@@ -134,6 +135,6 @@
 @endsection
 
 @section("footer")
-CENTRO GINECOLOGICO DE SAN BERNARDINO - SERVICIO MEDICO ESPECIALISTA EN GINECOLOGÍA - EMERGENCIAS GINECOLOGICAS - MEDICOS GINECOLOGICOS CON AMPLIA TRAYECTORIA - CONTAMOS CON HOSPILAIZACION PARA PACIENTES CON AFECIONES GINECOLOGICAS - CLINICA GINECOLOGICA EN SAN BERNARDINO - EXAMENES GINECOLOGICOS 24 HORAS - CITAS DE GINECOLOGÍA - CONSULTORIOS PARA CITAS DE GINECOLOGÍA - SALA DE EMERGENCIA EN GINECOLOGÍA  - CENTRO MEDICO EN GINECOLOGÍA - MEDICOS GINECOLOGICOS QUIRURGICOS EN SAN BERNARDINO - ESPECIALISTAS EN GINECOLOGÍA -  UNIDAD DE GINECOLOGÍA EN CARACAS - CLINICA GINECOLOGÍA EN CARACAS VENEZUELA - MEDICOS GINECOLOGICOS EN CARACAS VENEZUELA - CLINICA PODOLOGICA Y ORTOPEDICAS EN CARACAS - GINECOLOGICOS EN CARACAS- MEDICOS  GINECOLOGICOS EN CARACAS VENEZUELA - EMERGENCIA MEDICA PODOLOGICA - GINECOLOGICOS EN SAN BENADINO CARACAS VENEZUALA - CENTRO PODOLOGICO - COP.
+Centro Ginecologico De San Bernardino - Servicio Medico Especialista En Ginecología - Emergencias Ginecologicas - Medicos Ginecologicos Con Amplia Trayectoria - Contamos Con Hospilaizacion Para Pacientes Con Afeciones Ginecologicas - Clinica Ginecologica En San Bernardino - Examenes Ginecologicos 24 Horas - Citas De Ginecología - Consultorios Para Citas De Ginecología - Sala De Emergencia En Ginecología - Centro Medico En Ginecología - Medicos Ginecologicos Quirurgicos En San Bernardino - Especialistas En Ginecología - Unidad De Ginecología En Caracas - Clinica Ginecología En Caracas Venezuela - Medicos Ginecologicos En Caracas Venezuela - Clinica Podologica Y Ortopedicas En Caracas - Ginecologicos En Caracas- Medicos Ginecologicos En Caracas Venezuela - Emergencia Medica Podologica - Ginecologicos En San Benadino Caracas Venezuala - Centro Podologico - Cop.
 
 @endsection

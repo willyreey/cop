@@ -1,4 +1,5 @@
 @extends('template')
+@section("meta")
 
     <meta name="description" content="Optometría Médica, Optometría Pediátrica, Optometría en San Bernardino, Optometría en Caracas, Centro de Optometría en Caracas, Optometría en Caracas, Optometría COP, Doctores Optometristas, Medicos Optometristas, Mejor Optometrista de Venezuela, Optometrista en Caracas, Optometristas en San Bernardino, Optometristas Infantiles, Especialidad Optometría.">
 
@@ -6,7 +7,7 @@
 
     <title>COP- CENTRO OPTOMETRICO SAN BERNARDINO, MEDICOS EN OPTOMETRIA - CLINICA  PODOLOGICO</title>
 
-
+@endsection
 @section("content")
 
  <div class="row">
@@ -98,7 +99,7 @@
     <input type="checkbox"> Acepto los Términos y Condiciones
   </div>
     <div class="form-group">
-        <button type="button" class="btn btn-primary">ENVIAR</button>
+        <button type="button" onclick="return mensajepr()" class="btn btn-primary">ENVIAR</button>
   </div>
 </form>
 <div class="p-2"></div>

@@ -159,7 +159,7 @@
     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="overflow:auto;resize:none"></textarea>
   </div>
     <div class="form-group">
-        <button type="button" class="btn btn-primary">ENVIAR</button>
+        <button type="button" onclick="return mensajepr()" class="btn btn-primary">ENVIAR</button>
   </div>
 </form>
 <div class="p-2"></div>
@@ -192,7 +192,7 @@
 
 @section("footer")
 
-CENTRO ORTOPÉDICO PODOLÓGICO EN SAN BERNARDINO - COP - TRAUMATOLOGÍA - HOSPITALIZACIÓN - LABORATORIO - SERVICIOS MÉDICOS - AMBULATORIO - SERVICIOS MÉDICOS Y PARAMÉDICOS LAS 24 HORAS - ATENCIÓN PRIMARIA Y DE EMERGENCIA - LABORATORIOS INTEGRALES - EXAMEN DE LABORATORIOS EN CARACAS - VENEZUELA - CITAS Y CONSULTORIOS MÉDICOS - ESPECIALIDADES DE MEDICINAS TRAUMAS - PRIMEROS AUXILIOS CON AMBULANCIAS LAS 24 HORAS - CONTAMOS CON QUIRÓFANOS DE ALTA TECNOLOGÍA Y CIRUJANOS CON AMPLIA TRAYECTORIA Y ESPECIALIZACIONES MEDICAS - FARMACIA - MEDICAMENTOS - FÁRMACOS - MATERIALES E INSUMOS MÉDICOS - MÉDICOS TRAUMATÓLOGOS - MÉDICOS ONCÓLOGOS - MÉDICOS ONCÓLOGOS - MÉDICOS CARDIÓLOGOS - MÉDICOS COLOPROCTOLOGOS - MÉDICOS GASTROENTERÓLOGOS - MÉDICOS GINECÓLOGOS - MÉDICOS HEMATÓLOGOS - MÉDICOS OPTETRAS - MÉDICOS PODÓLOGOS - MÉDICOS URÓLOGOS - PODOLÓGICO - CONSULTAS MEDICAS - CARACAS - CONSULTORIOS - VENEZUELA - CITAS DE CARDIOLOGÍA - CITAS DE UROLOGÍA - CITAS DE TRAUMATOLOGÍA - CITAS DE PODOLOGÍA - CITAS DE ONTOLOGÍA - CITAS DE COLÓPROCTOLOGÍA - CITAS DE GASTROENTEROLOGÍA - CITAS DE GINECOLOGÍA - CITAS DE HEMATOLÓGICA - CITAS DE PEDIATRÍA - CITAS DE PSICOLOGÍA - CITAS DE PSIQUIATRÍA
+Centro ortopédico podológico San Bernardino - cop - Traumatología - Hospitalizacion - Laboratorio - Servicios médicos - Ambulatorio - Servicios médicos y paramédicos las 24 horas - Atención primaria y de emergencia - Laboratorios integrales - Examen de laboratorios en Caracas - Venezuela - Citas y consultorios médicos - Especialidades de medicina traumas - Primeros auxilios con ambulancias las 24 horas - Contamos con quirófanos de alta tecnología y cirujanos con amplia trayectoria y especializaciones médicas - Farmacia - Medicamentos - Fármacos - Materiales e insumos médicos - Médicos traumatólogos - Médicos oncólogos - Médicos cardiólogos - Médicos coloproctologos - Médicos gastroenterólogos - Médicos ginecólogos - Médicos hematólogos - Médicos optetras - Médicos podólogos - Médicos urólogos - Podológico - Consultas médicas - Caracas - Consultorios - Venezuela - Citas de cardiología - Citas de urología - Citas de traumatología - Citas de podología - Citas de ontología - Citas de colocroptología - Citas de gastroenterología - Citas de ginecología - Citas de hematología - Citas de pediatría - Citas de psicología - Citas de psiquiatría
 
 @endsection
 
