@@ -8,7 +8,8 @@
             <div class="card-header">
                 <div class="col-12 text-center"><h3>Registro de usuario</h3></div>
             </div>
-            <div class="card-body">
+        </div>
+  {{--           <div class="card-body">
             <div class="row" style="text-align:right">
                     <div class="form-group col-6 col-md-4 col-lg-4"><b>¿Desea registrar como?</b></div>
                         <div class="form-group col-6 col-md-6  col-lg-5">
@@ -25,9 +26,9 @@
                             </select>
                         </div>
                     </div>
-            </div>
+            </div> --}}
 
-        <div class="container">
+{{--         <div class="container">
             <div class="row">
                 <div class="col" style="display:none" id="mensaje">
                     <center>
@@ -35,15 +36,33 @@
                     </center>
                 </div>
             </div> 
-        </div> 
-        <br>   
+        </div>  --}}
+           
         @include('sweetalert::alert')
 
-               <form id="f1" style="display:none;" action="/registro_1" method="POST" >
+
+               <form action="/registro_1" method="POST">
+
+                            <div class="row" style="text-align:right">
+                    <div class="form-group col-6 col-md-4 col-lg-4"><b>¿Desea registrar como?</b></div>
+                        <div class="form-group col-6 col-md-6  col-lg-5">
+                            <select onchange="visitante();" class="form-control" name="tipo_u" id="seleccion">
+                            <option value="0">ELEGIR COMO DESEA REGISTRARSE</option>
+                            <option value="1">VISITANTE</option>
+                            <option value="2">PACIENTE</option>
+                            <option value="3">PERSONAL DE ENFERMERIA</option>
+                            <option value="4">PERSONAL DE MANTENIMIENTO Y SEGURIDAD</option>
+                            <option value="5">PERSONAL ADMINISTRATIVO Y OFICINA</option>
+                            <option value="6">ADMINISTRADOR DEL PORTAL WEB</option>
+                            <option value="7">PROVEEDORES</option>
+                            <option value="8">TRABAJADORES Y SERVICIOS EVENTUALES</option>
+                            </select>
+                        </div>
+                    </div>
                     
-                    {{ csrf_field() }}
+                    @csrf
                     <div class="p-2" ></div>
-                    <div class="row" style="text-align:right;">
+                    <div id="f1" class="row" style="text-align:right;">
                         <div class="form-group col-4 col-md-6 col-lg-4">
                             <b style="color:red">*</b>
                             <svg width="30" height="30" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -54,7 +73,7 @@
                         <div class="form-group col-6 col-md-3 col-lg-4"><input class="form-control" type="text" placeholder="Nombres" name="nombres" id="nombres" required></div>
                     </div>
                     <div class="p-2" ></div>
-                    <div class="row" style="text-align:right;">
+                    <div id="f2" class="row" style="text-align:right;">
                     <div class="col-4 col-md-6 col-lg-4">
                             <b style="color:red">*</b>
                             <svg width="30" height="30" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -160,11 +179,16 @@
                             <input type="submit" class="btn btn-primary btn-lg btn-block" value="Registrar">
                         </div>
                     </div>
-                    <br>
+                    
 
                 </form>
+                        @endsection
 
-                <form id="f2" style="display:none" action="/registro_2" method="POST">
+@section("footer")
+
+@endsection
+
+{{--                 <form id="f2" style="display:none" action="/registro_2" method="POST">
 
                 {{ csrf_field() }}
 
@@ -774,4 +798,4 @@
 
 @section("footer")
 
-@endsection
+@endsection --}}

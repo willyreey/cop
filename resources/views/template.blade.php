@@ -6,13 +6,17 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     @yield("meta")
     <link rel="stylesheet" href="{{ asset('estilos.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/scroll.css') }}">
 
     
     @include('sweetalert::alert')
+ @livewireStyles
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ @livewireScripts
 
 </head>
-<body >
+<body>
 
 <div class="container shadow-lg p-3 mb-5 rounded" style="margin-top: 2%;">
 {{-- OOO________O________________________________HEADER________________________O________________ --}}
@@ -33,26 +37,49 @@
 {{-- _______________O_______________O_____NAVBAR_______________O_______________O_____ --}}
 
     <div class="p-1 w-100"></div>
-    
-    <nav class="navbar navbar-expand-sm">
-  <a class="navbar-brand btn btn-light btn-lg" href="{{ route('registro') }}">Registrarse </a>
+
+    @guest
+                            @if (Route::has('register'))
+                                <nav class="navbar navbar-expand-lg">
+  <a class="navbar-brand btn btn-light btn-lg" href="{{ route('register') }}">Registrar </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">●●●
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-    <form class="form-inline" action="/login" method="POST">
-    {{ csrf_field() }}
+    <form class="form-inline" action="{{ route('login') }}" method="POST">
+       @csrf
+      <input class="form-control mr-sm-2 btn-sm" type="search" name="email" placeholder="Email" aria-label="Usuario">
+      
+      @error('email')
+        <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+         </span>
+     @enderror
 
-      <input class="form-control mr-sm-2 btn-sm" type="text" id="correo" name="correo_p" placeholder="Correo Electronico" aria-label="Usuario">
-      <input class="form-control mr-sm-2 btn-sm" type="password" id="password" name="pass" placeholder="Contraseña" aria-label="Contraseña">
+      <input class="form-control mr-sm-2 btn-sm" type="password" name="password" placeholder="Contraseña" aria-label="Contraseña">
+
+      @error('password')
+        <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+         </span>
+     @enderror
+
       <ul class="navbar-nav mr-auto">
-    <small id="passwordHelpBlock" class="form-text margin-left-1">
-  <a class="mr-sm-2">¿Olvidó su contraseña?</a>
-</small>
 
-<button  class="btn btn-primary btn-sm" type="submit">INGRESAR</button>
+        @if (Route::has('password.request'))
+        <small id="passwordHelpBlock" class="form-text margin-left-1">
+          <a class="mr-sm-2" href="{{ route('password.request') }}">
+              {{ __('¿Olvidó su contraseña?') }}
+          </a>
+          </small>
+       @endif
+    
+{{--   <a class="mr-sm-2">¿Olvidó su contraseña?</a> --}}
+
+
+<button class="btn btn-primary btn-sm" type="submit">INGRESAR</button>
  <div class="p-1 w-100"></div>
 </ul>
       
@@ -66,7 +93,51 @@
     </form>
   </div>
 </nav>
+                            @endif
 
+                            
+                      @else
+
+                                <nav class="navbar navbar-expand-lg">
+                                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">●●●
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown">
+<a id="navbarDropdown" class="nav-link btn btn-primary dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+        {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
+    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="{{ route('logout') }}"
+        onclick="event.preventDefault();
+                      document.getElementById('logout-form').submit();">
+         {{ __('Salir') }}
+        </a>
+
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+        </form>
+    </div>
+  </li>
+
+</ul>
+
+    <form class="form-inline">
+      <input class="form-control mr-sm-2 btn-sm" type="search" placeholder="Buscar" aria-label="Buscar">
+      <button class="btn btn-outline-success btn-sm" type="submit">BUSCAR</button>
+    </form>
+  </div>
+</nav>
+
+                        @endguest
+    
+    
+  
+
+{{-- _______________O_______________O_____NAVBAR_______________O_______________O_____ --}}
     <div class="p-1 w-100"></div>
     <nav class="navbar navbar-expand-xl navbar-light no-gutters" style="background-color: rgb(10 108 206);">
   <a class="navbar-brand" href="{{ route('principal') }}" style="color: white; font-size: 14px; margin-right: 50px; margin-left: 50px;">INICIO</a>
@@ -187,7 +258,14 @@
 
 {{-- _______________O_______________O_____NAVBAR_______________O_______________O_____ --}}
 
-<img type="button" class="probando" src="{{asset('img/chat.png')}}">
+@guest
+ @if (Route::has('register'))
+<a data-toggle="modal" data-target="#exampleModalCenter"><img type="button" class="probando" src="{{asset('img/chat.png')}}"></a>
+@endif
+ @else
+<a href="{{ route('chat') }}" data-toggle="tooltip" data-placement="top" title="Tooltip on top"><img type="button" class="probando" src="{{asset('img/chat.png')}}"></a>
+@endguest
+
 <a href="https://api.whatsapp.com/send?phone=584122508629&text=Hola!%20en%20que%20podemos%20ayudarte?"><img class="probandoo" src="{{asset('img/whatsapp.png')}}"></a>
 
 
@@ -199,6 +277,8 @@
     @yield("content")
     
     <div class="p-1 w-100"></div>
+    
+  </body>
 
  {{-- ___________O_______________O_______SEGUROS___________O_______________O_______ --}}
 <div class="containere">
@@ -534,6 +614,26 @@
   </div>
 </div>
 
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Registro</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Para poder entrar realizar esta petición debe estar registrado. Pulse el boton <b>"Registrar"</b> para registrarse.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <a class="btn btn-primary" href="{{ route('register') }}">Registrar </a>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
   $("#Btnsubmit").click(function(){
     $(this).prop("disable", true); //deshabilitamos el boton
@@ -569,7 +669,6 @@ document.write("\" border=0 alt=\"Estadisticas\">");
 {{-- ___________O___________O__________PIE DE PAGINA___________O___________O__________
  --}}
    
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 

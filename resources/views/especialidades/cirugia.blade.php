@@ -1,12 +1,11 @@
 @extends('template')
-@section("meta")
 
     <meta name="description" content="Cirugía Médica, Cirugía Pediátrica, Cirugía en San Bernardino, Cirujanos en Caracas, Centro de Cirujanos en Caracas, Cirugía en Caracas, Cirugía COP, Doctores Cirujanos, Medicos Cirujanos, Mejor Cirujano de Venezuela, Cirujano en Caracas, Cirujia Plastica, Cirugía General, Cirugía de Emergencia, Cirugía Quirúrgica.">
 
      <meta name="keywords" content="CENTRO, PSICOLOGICO,SAN BERNADINO, SERVICIO, MEDICO, ESPECIALISTA, PSICOLOGÍA, PIE Y MANOS, EMERGENCIAS, PSICOLOGICA, CIRUGIAS, EMERGENCIA, PSICOLOGICAS, MEDICOS, PSICOLOGICOS, CLINICA, PSICOLOGICA, PODOLOGICA, SAN BERNARDINO, CITAS, PSICOLOGÍA, CONSULTORIOS, CITAS,PSICOLOGÍA, SALA DE EMERGENCIA, PSICOLOGÍA, SALA DE YESO Y PROTESIS, CENTRO, MEDICO, PSICOLOGÍA,  MEDICOS, PSICOLOGICOS, QUIRURGICOS,  ESPECIALISTAS, PSICOLOGÍA, CIRUGIA, COLUMNA, PIES, MANOS, BRAZOS, RODILLAS, UNIDAD, PSICOLOGÍA, CARACAS, VENEZUELA, CLINICA, PSICOLOGÍA, CARACAS, VENEZUELA, MEDICOS, PSICOLOGICOS, PSICOLOGICOS EN CARACAS VENEZUELA- CLINICA PSICOLOGICA, CARACAS,PSICOLOGICOS,MEDICOS, CIRUJANOS, PSICOLOGICOS, CARACAS - VENEZUELA, EMERGENCIA, MEDICA, PODOLOGICA, TRAUMA, QUIRURGICAS, PSICOLOGICOS, SAN BENADINO, CARACAS, VENEZUALA , CENTRO, PODOLOGICO,  COP">
 
     <title>COP- CENTRO CIRUJANO SAN BERNARDINO, CIRUGÍA EN GENERAL - CLINICA  PODOLOGICO</title>
-@endsection
+
 @section("content")
 
  <div class="row">
@@ -90,42 +89,56 @@
 <hr>
 
 <div class="border rounded" style="padding: 19px;">
-<form>
+<form action="{{route('cirugia')}}" method="POST">
+    @csrf
   <div class="form-group">
     <label for="exampleFormControlTextarea1"><b>Barra de preguntas y respuestas:</b></label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="overflow:auto;resize:none"></textarea>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="overflow:auto;resize:none" name="pregunta"></textarea>
   </div>
   <div class="form-group">
     <input type="checkbox"> Acepto los Términos y Condiciones
   </div>
     <div class="form-group">
-        <button type="button" onclick="return mensajepr()" class="btn btn-primary">ENVIAR</button>
+           @guest
+        @if (Route::has('register'))
+            <button class="btn btn-primary" disabled style="margin-right: 10px">ENVIAR</button><b>Debe estar <a href="{{ route('register') }}">Registrado</a> para poder realizar un comentario</b>
+        @endif
+    
+
+
+                            
+         @else
+            <button type="submit" class="btn btn-primary">ENVIAR</button>
+
+     @endguest
+        
   </div>
+
+  <div class="scroll col-lg-12">
+        
+    @forelse ($sql as $dato)
+    <div class="preguntas">  
+      <b style="margin-left: 10px">{{ $dato->usuario }}: </b>{{$dato->pregunta}} <br>    
+    </div>
+  
+    @empty
+    <center>
+        <br><br><br>
+        <b class="no-comments">No hay comentarios</b>
+        <style>
+            .scroll:hover{
+                filter: blur(1px);
+                transition: 0.7s;
+            }
+        </style>
+    </center>
+  
+  @endforelse
+
+    <div class="p-2"></div>
+
+</div>
 </form>
-<div class="p-2"></div>
-<div class="row">
-    <div class="col-12 rounded border">
-        <label for="" class="text-justify"><b>Maria Perez: </b>¿Tienen servicio de emergencia las 24 horas?</label>
-    </div>
-    <div class="col-12 table-primary rounded border">
-        <label for="" class="text-justify"><b>Respuesta: </b>Si, las 24 horas.</label>
-    </div>
-    <div class="p-2"></div>
-    <div class="col-12 rounded border">
-        <label for="" class="text-justify"><b>Rafael Guzman: </b>¿Donde estan ubicados?</label>
-    </div>
-    <div class="col-12 table-primary rounded border">
-        <label for="" class="text-justify"><b>Respuesta: </b>Av. Eraso, Centro Ortopédico Podológico, San Bernardino, Caracas.</label>
-    </div>
-    <div class="p-2"></div>
-    <div class="col-12 rounded border">
-        <label for="" class="text-justify"><b>Reymon Ayala: </b>¿Hasta que hora trabaja el doctor Mario Hernandez?</label>
-    </div>
-    <div class="col-12 table-primary rounded border">
-        <label for="" class="text-justify"><b>respuesta: </b>Buen dia, de 8:00am a 4:00pm.</label>
-    </div>
-</div>
-</div>
 
 <div class="p-1 w-100"></div>
 

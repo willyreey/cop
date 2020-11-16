@@ -1,5 +1,4 @@
 @extends('template')
-@section("meta")
 
     <meta name="description" content="CENTRO UROLOGICO DE SAN BERNARDINO, SERVICIO MEDICO ESPECIALISTA EN UROLOGÍA, EMERGENCIAS UROLOGICAS, MEDICOS UROLOGICOS CON AMPLIA TRAYECTORIA, CONTAMOS CON HOSPILAIZACION PARA PACIENTES CON AFECIONES UROLOGICAS, CLINICA UROLOGICA EN SAN BERNARDINO, EXAMENES UROLOGICOS 24 HORAS, CITAS DE UROLOGÍA, CONSULTORIOS PARA CITAS DE UROLOGÍA, SALA DE EMERGENCIA EN UROLOGÍA , CENTRO MEDICO EN UROLOGÍA, MEDICOS UROLOGICOS QUIRURGICOS EN SAN BERNARDINO, ESPECIALISTAS EN UROLOGÍA,  UNIDAD DE UROLOGÍA EN CARACAS, CLINICA UROLOGÍA EN CARACAS VENEZUELA, MEDICOS UROLOGICOS EN CARACAS VENEZUELA, CLINICA PODOLOGICA Y ORTOPEDICAS EN CARACAS, UROLOGICOS EN CARACAS- MEDICOS  UROLOGICOS EN CARACAS VENEZUELA, EMERGENCIA MEDICA PODOLOGICA, UROLOGICOS EN SAN BENADINO CARACAS VENEZUALA, CENTRO PODOLOGICO, COP.">
 
@@ -7,7 +6,7 @@
 
     <title>COP- CENTRO UROLOGICO SAN BERNARDINO, MEDICOS UROLOGICOS - CLINICA  PODOLOGICO</title>
 
-@endsection
+
 @section("content")
 
         <div class="row">
@@ -87,45 +86,61 @@
     </div>
 </section>
 
+
 <div class="p-1 w-100"></div>
 <hr>
 
 <div class="border rounded" style="padding: 19px;">
-<form>
-  <div class="form-group">
-    <label for="exampleFormControlTextarea1"><b>Barra de preguntas y respuestas:</b></label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="overflow:auto;resize:none"></textarea>
-  </div>
-  <div class="form-group">
+    <form action="{{route('urologia')}}" method="POST">
+        @csrf
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1"><b>Barra de preguntas y respuestas:</b></label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="overflow:auto;resize:none" name="pregunta"></textarea>
+      </div>
+      <div class="form-group">
     <input type="checkbox"> Acepto los Términos y Condiciones
   </div>
     <div class="form-group">
-        <button type="button" onclick="return mensajepr()" class="btn btn-primary">ENVIAR</button>
+           @guest
+        @if (Route::has('register'))
+            <button class="btn btn-primary" disabled style="margin-right: 10px">ENVIAR</button><b>Debe estar <a href="{{ route('register') }}">Registrado</a> para poder realizar un comentario</b>
+        @endif
+    
+
+
+                            
+         @else
+            <button type="submit" class="btn btn-primary">ENVIAR</button>
+
+     @endguest
+        
   </div>
-</form>
-<div class="p-2"></div>
-<div class="row">
-    <div class="col-12 rounded border">
-        <label for="" class="text-justify"><b>Vincente Oropeza: </b>¿Hacen examen de Hematologia?</label>
+
+  <div class="scroll col-lg-12">
+        
+    @forelse ($sql as $dato)
+    <div class="preguntas">  
+      <b style="margin-left: 10px">{{ $dato->usuario }}: </b>{{$dato->pregunta}} <br>    
     </div>
-    <div class="col-12 table-primary rounded border">
-        <label for="" class="text-justify"><b>Respuesta: </b>Buen día, si..</label>
-    </div>
+  
+    @empty
+    <center>
+        <br><br><br>
+        <b class="no-comments">No hay comentarios</b>
+        <style>
+            .scroll:hover{
+                filter: blur(1px);
+                transition: 0.7s;
+            }
+        </style>
+    </center>
+  
+  @endforelse
+
     <div class="p-2"></div>
-    <div class="col-12 rounded border">
-        <label for="" class="text-justify"><b>Pablo Escobar: </b>¿Debo estar en ayunas para un examen de rutina?</label>
-    </div>
-    <div class="col-12 table-primary rounded border">
-        <label for="" class="text-justify"><b>Respuesta: </b>Buen día, depende del examen.</label>
-    </div>
-    <div class="p-2"></div>
-    <div class="col-12 rounded border">
-        <label for="" class="text-justify"><b>Mario Silva: </b>¿Hasta que hora trabaja el Juan Lopez?</label>
-    </div>
-    <div class="col-12 table-primary rounded border">
-        <label for="" class="text-justify"><b>respuesta: </b>Buen dia, de 8:00am a 4:00pm.</label>
-    </div>
+
 </div>
+</form>
 </div>
 
 <div class="p-1 w-100"></div>
@@ -133,5 +148,5 @@
 @endsection
 
 @section("footer")
-Centro Hematologico De San Bernardino - Servicio Medico Especialista En Hematología - Emergencias Urologicas - Medicos Hematologicos Con Amplia Trayectoria - Contamos Con Hospilaizacion Para Pacientes Con Afeciones Urologicas - Clinica Hematologica En San Bernardino - Examenes Hematologicos 24 Horas - Citas De Hematología - Consultorios Para Citas De Hematología - Sala De Emergencia En Hematología  - Centro Medico En Hematología - Medicos Hematologicos Quirurgicos En San Bernardino - Especialistas En Hematología -  Unidad De Hematología En Caracas - Clinica Hematología En Caracas Venezuela - Medicos Hematologicos En Caracas Venezuela - Clinica Podologica Y Ortopedicas En Caracas - Hematologicos En Caracas- Medicos  Hematologicos En Caracas Venezuela - Emergencia Medica Podologica - Hematologicos En San Benadino Caracas Venezuala - Centro Podologico - Cop.
+CENTRO HEMATOLOGICO DE SAN BERNARDINO - SERVICIO MEDICO ESPECIALISTA EN HEMATOLOGÍA - EMERGENCIAS UROLOGICAS - MEDICOS HEMATOLOGICOS CON AMPLIA TRAYECTORIA - CONTAMOS CON HOSPILAIZACION PARA PACIENTES CON AFECIONES UROLOGICAS - CLINICA HEMATOLOGICA EN SAN BERNARDINO - EXAMENES HEMATOLOGICOS 24 HORAS - CITAS DE HEMATOLOGÍA - CONSULTORIOS PARA CITAS DE HEMATOLOGÍA - SALA DE EMERGENCIA EN HEMATOLOGÍA  - CENTRO MEDICO EN HEMATOLOGÍA - MEDICOS HEMATOLOGICOS QUIRURGICOS EN SAN BERNARDINO - ESPECIALISTAS EN HEMATOLOGÍA -  UNIDAD DE HEMATOLOGÍA EN CARACAS - CLINICA HEMATOLOGÍA EN CARACAS VENEZUELA - MEDICOS HEMATOLOGICOS EN CARACAS VENEZUELA - CLINICA PODOLOGICA Y ORTOPEDICAS EN CARACAS - HEMATOLOGICOS EN CARACAS- MEDICOS  HEMATOLOGICOS EN CARACAS VENEZUELA - EMERGENCIA MEDICA PODOLOGICA - HEMATOLOGICOS EN SAN BENADINO CARACAS VENEZUALA - CENTRO PODOLOGICO - COP.
 @endsection

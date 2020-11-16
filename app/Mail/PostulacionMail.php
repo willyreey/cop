@@ -68,7 +68,7 @@ class PostulacionMail extends Mailable
      */
     public function build()
     {
-        return $this->view('pdf')
+        return $this->view('email')
                     ->subject('Curriculum Vitae')->attachData($this->pdf, 'curriculum.pdf', ['mime' => 
    'application/pdf']);    }
 }

@@ -67,42 +67,61 @@
 <br>
 <br>-->
 </section>
+
 <div class="p-1 w-100"></div>
 <hr>
 
 <div class="border rounded" style="padding: 19px;">
-<form>
-  <div class="form-group">
-    <label for="exampleFormControlTextarea1"><b>Barra de preguntas y respuestas:</b></label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="overflow:auto;resize:none"></textarea>
+  <form action="{{route('ambulatorio')}}" method="POST">
+      @csrf
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1"><b>Barra de preguntas y respuestas:</b></label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="overflow:auto;resize:none" name="pregunta"></textarea>
+    </div>
+    <div class="form-group">
+          <input type="checkbox"> Acepto los Términos y Condiciones
   </div>
     <div class="form-group">
-        <button type="button" onclick="return mensajepr()" class="btn btn-primary">ENVIAR</button>
+           @guest
+        @if (Route::has('register'))
+            <button class="btn btn-primary" disabled style="margin-right: 10px">ENVIAR</button><b>Debe estar <a href="{{ route('register') }}">Registrado</a> para poder realizar un comentario</b>
+        @endif
+    
+
+
+                            
+         @else
+            <button type="submit" class="btn btn-primary">ENVIAR</button>
+
+     @endguest
+        
   </div>
-</form>
-<div class="p-2"></div>
-<div class="row">
-    <div class="col-12 rounded border">
-        <label for="" class="text-justify"><b>Alejandra Carpio: </b>Tiene servicio de APS?</label>
+
+  <div class="scroll col-lg-12">
+        
+    @forelse ($sql as $dato)
+    <div class="preguntas">  
+      <b style="margin-left: 10px">{{ $dato->usuario }}: </b>{{$dato->pregunta}} <br>    
     </div>
-    <div class="col-12 table-primary rounded border">
-        <label for="" class="text-justify"><b>Respuesta: </b>Buen dia, si.</label>
-    </div>
+  
+    @empty
+    <center>
+        <br><br><br>
+        <b class="no-comments">No hay comentarios</b>
+        <style>
+            .scroll:hover{
+                filter: blur(1px);
+                transition: 0.7s;
+            }
+        </style>
+    </center>
+  
+  @endforelse
+
     <div class="p-2"></div>
-    <div class="col-12 rounded border">
-        <label for="" class="text-justify"><b>MAtias Hernandez: </b>Tienen servicio de emergencia?</label>
-    </div>
-    <div class="col-12 table-primary rounded border">
-        <label for="" class="text-justify"><b>Respuesta: </b>Buen dia, si.</label>
-    </div>
-    <div class="p-2"></div>
-    <div class="col-12 rounded border">
-        <label for="" class="text-justify"><b>Rosario Perez: </b>Cual es el horario para hacer examenes?</label>
-    </div>
-    <div class="col-12 table-primary rounded border">
-        <label for="" class="text-justify"><b>respuesta: </b>Buen dia, de 8:00am a 4:00pm.</label>
-    </div>
+
 </div>
+</form>
 </div>
 @endsection
 

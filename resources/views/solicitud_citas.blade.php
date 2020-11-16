@@ -152,47 +152,65 @@
         </div>
         <hr>
 
-<div class="border rounded" style="padding: 19px;">
-<form>
-  <div class="form-group">
-    <label for="exampleFormControlTextarea1"><b>Barra de preguntas y respuestas:</b></label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="overflow:auto;resize:none"></textarea>
+        <div class="border rounded" style="padding: 19px;">
+            <form action="{{route('solicitud_citas')}}" method="POST">
+                @csrf
+              <div class="form-group">
+                <label for="exampleFormControlTextarea1"><b>Barra de preguntas y respuestas:</b></label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="overflow:auto;resize:none" name="pregunta"></textarea>
+              </div>
+              <div class="form-group">
+    <input type="checkbox"> Acepto los Términos y Condiciones
   </div>
     <div class="form-group">
-        <button type="button" onclick="return mensajepr()" class="btn btn-primary">ENVIAR</button>
+           @guest
+        @if (Route::has('register'))
+            <button class="btn btn-primary" disabled style="margin-right: 10px">ENVIAR</button><b>Debe estar <a href="{{ route('register') }}">Registrado</a> para poder realizar un comentario</b>
+        @endif
+    
+
+
+                            
+         @else
+            <button type="submit" class="btn btn-primary">ENVIAR</button>
+
+     @endguest
+        
   </div>
+
+  <div class="scroll col-lg-12">
+        
+    @forelse ($sql as $dato)
+    <div class="preguntas">  
+      <b style="margin-left: 10px">{{ $dato->usuario }}: </b>{{$dato->pregunta}} <br>    
+    </div>
+  
+    @empty
+    <center>
+        <br><br><br>
+        <b class="no-comments">No hay comentarios</b>
+        <style>
+            .scroll:hover{
+                filter: blur(1px);
+                transition: 0.7s;
+            }
+        </style>
+    </center>
+  
+  @endforelse
+
+    <div class="p-2"></div>
+
+</div>
 </form>
-<div class="p-2"></div>
-<div class="row">
-    <div class="col-12 rounded border">
-        <<label for="" class="text-justify"><b>Alejandra Carpio: </b>Tiene servicio de APS?</label>
-    </div>
-    <div class="col-12 table-primary rounded border">
-        <label for="" class="text-justify"><b>Respuesta: </b>Buen dia, si.</label>
-    </div>
-    <div class="p-2"></div>
-    <div class="col-12 rounded border">
-        <label for="" class="text-justify"><b>MAtias Hernandez: </b>Tienen servicio de emergencia?</label>
-    </div>
-    <div class="col-12 table-primary rounded border">
-        <label for="" class="text-justify"><b>Respuesta: </b>Buen dia, si.</label>
-    </div>
-    <div class="p-2"></div>
-    <div class="col-12 rounded border">
-        <label for="" class="text-justify"><b>Rosario Perez: </b>Cual es el horario para hacer examenes?</label>
-    </div>
-    <div class="col-12 table-primary rounded border">
-        <label for="" class="text-justify"><b>respuesta: </b>Buen dia, de 8:00am a 4:00pm.</label>
-    </div>
-</div>
-</div>
+          </div>
 
 
 @endsection
 
 @section("footer")
 
-Centro ortopédico podológico San Bernardino - cop - Traumatología - Hospitalizacion - Laboratorio - Servicios médicos - Ambulatorio - Servicios médicos y paramédicos las 24 horas - Atención primaria y de emergencia - Laboratorios integrales - Examen de laboratorios en Caracas - Venezuela - Citas y consultorios médicos - Especialidades de medicina traumas - Primeros auxilios con ambulancias las 24 horas - Contamos con quirófanos de alta tecnología y cirujanos con amplia trayectoria y especializaciones médicas - Farmacia - Medicamentos - Fármacos - Materiales e insumos médicos - Médicos traumatólogos - Médicos oncólogos - Médicos cardiólogos - Médicos coloproctologos - Médicos gastroenterólogos - Médicos ginecólogos - Médicos hematólogos - Médicos optetras - Médicos podólogos - Médicos urólogos - Podológico - Consultas médicas - Caracas - Consultorios - Venezuela - Citas de cardiología - Citas de urología - Citas de traumatología - Citas de podología - Citas de ontología - Citas de colocroptología - Citas de gastroenterología - Citas de ginecología - Citas de hematología - Citas de pediatría - Citas de psicología - Citas de psiquiatría
+CENTRO ORTOPÉDICO PODOLÓGICO EN SAN BERNARDINO - COP - TRAUMATOLOGÍA - HOSPITALIZACIÓN - LABORATORIO - SERVICIOS MÉDICOS - AMBULATORIO - SERVICIOS MÉDICOS Y PARAMÉDICOS LAS 24 HORAS - ATENCIÓN PRIMARIA Y DE EMERGENCIA - LABORATORIOS INTEGRALES - EXAMEN DE LABORATORIOS EN CARACAS - VENEZUELA - CITAS Y CONSULTORIOS MÉDICOS - ESPECIALIDADES DE MEDICINAS TRAUMAS - PRIMEROS AUXILIOS CON AMBULANCIAS LAS 24 HORAS - CONTAMOS CON QUIRÓFANOS DE ALTA TECNOLOGÍA Y CIRUJANOS CON AMPLIA TRAYECTORIA Y ESPECIALIZACIONES MEDICAS - FARMACIA - MEDICAMENTOS - FÁRMACOS - MATERIALES E INSUMOS MÉDICOS - MÉDICOS TRAUMATÓLOGOS - MÉDICOS ONCÓLOGOS - MÉDICOS ONCÓLOGOS - MÉDICOS CARDIÓLOGOS - MÉDICOS COLOPROCTOLOGOS - MÉDICOS GASTROENTERÓLOGOS - MÉDICOS GINECÓLOGOS - MÉDICOS HEMATÓLOGOS - MÉDICOS OPTETRAS - MÉDICOS PODÓLOGOS - MÉDICOS URÓLOGOS - PODOLÓGICO - CONSULTAS MEDICAS - CARACAS - CONSULTORIOS - VENEZUELA - CITAS DE CARDIOLOGÍA - CITAS DE UROLOGÍA - CITAS DE TRAUMATOLOGÍA - CITAS DE PODOLOGÍA - CITAS DE ONTOLOGÍA - CITAS DE COLÓPROCTOLOGÍA - CITAS DE GASTROENTEROLOGÍA - CITAS DE GINECOLOGÍA - CITAS DE HEMATOLÓGICA - CITAS DE PEDIATRÍA - CITAS DE PSICOLOGÍA - CITAS DE PSIQUIATRÍA
 
 @endsection
 

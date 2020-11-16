@@ -1,12 +1,13 @@
 @extends('template')
-@section("meta")
-
     <meta name="description" content="CENTRO TRAUMATOLOGO DE SAN BERNARDINO, SERVICIO MEDICO ESPECIALISTA EN TRAMATOLOGIA DE PIE Y MANOS, EMERGENCIAS TRAUMATOLAGAS, CIRUGIAS DE EMERGENCIA TRAUMATOLOGAS, MEDICOS TRAUMATOLOGOS CON AMPLIA TRAYECTORIA, CONTAMOS CON QUIROFANO Y HOSPILAIZACION PARA PACIENTES CON AFECIONES TRAMATOLOGAS, CLINICA TRAUMATOLOGA PODOLOGICA EN SAN BERNARDINO, EXAMENES TRAUMATOLOGICOS 24 HORAS, CITAS DE TRAUMATOLOGIA, CONSULTORIOS PARA CITAS DE TRAUMATOILOGIA, SALA DE EMERGENCIA EN TRAUMATOLOGIA, SALA DE YESO Y PROTESIS, CENTRO MEDICO EN TRAUMATOLOGIA Y ORTOPEDIA, MEDICOS TRAUMATOLOGOS QUIRURGICOS EN SAN BERNARDINO, ESPECIALISTAS EN TRAUMATOLOGIA, CIRUGIA Y ORTOPEDIA DE COLUMNA, PIES, MANOS, BRAZOS, RODILLAS Y TODO EL APARATO LOCOMOTOR, UNIDAD DE TRAUMATOLOGIA EN CARACAS, CLINICA TRAUMATOLOGIA EN CARACAS VENEZUELA, MEDICOS TRAUMATOLOGICOS Y ORTOPEDIA EN CARACAS VENEZUELA, CLINICA PODOLOGICA Y ORTOPEDICAS EN CARACAS, TARUMATOLOGOS EN COLUMNAS, PIES Y MANOS, MEDICOS CIRUJANOS TRAUMATOLOGICOS EN CARACAS VENEZUELA, EMERGENCIA MEDICA PODOLOGICA, TRAUMAS QUIRURGICAS TRAUMATOLOGICAS EN SAN BENADINO CARACAS VENEZUALA, CENTRO PODOLOGICO, COP.">
     <meta name="keywords" content="CENTRO, TRAUMATOLOGO,SAN BERNADINO, SERVICIO, MEDICO, ESPECIALISTA, TRAMATOLOGIA, PIE Y MANOS, EMERGENCIAS, TRAUMATOLAGAS, CIRUGIAS, EMERGENCIA, TRAUATOLOGAS, MEDICOS, TRAUMATOLOGOS, CLINICA, TRAUMATOLOGA, PODOLOGICA, SAN BERNARDINO, CITAS, TRAUNATOLOGIA, CONSULTORIOS, CITAS,TRAUMATOILOGIA, SALA DE EMERGENCIA, TRAUMATOLOGIA, SALA DE YESO Y PROTESIS, CENTRO, MEDICO, TRAUMATOLOGIA, ORTOPEDIA, MEDICOS, TRAUMATOLOGOS, QUIRORGICOS,  ESPECIALISTAS, TRAUMA, CIRUGIA, ORTOPEDIA, COLUMNA, PIES, MANOS, BRAZOS, RODILLAS, UNIDAD, TRAUMATOLOGIA, CARACAS, VENEZUELA, CLINICA, TRAUMATOLOGIA, CARACAS, VENEZUELA, MEDICOS, TRAOMATOLOGICOS, ORTOPEDICOS EN CARACAS VENEZUELA- CLINICA PODOLOGICA Y ORTOPEDICAS, CARACAS,TARUMATOLOGOS, COLUMNAS, PIES Y MANOS, MEDICOS, CIRUJANOS, TRAUMATOLOGICOS, CARACAS - VENEZUELA, EMERGENCIA, MEDICA, PODOLOGICA, TRAUMA, QUIRURGICAS, TRAUMATOLOGICAS, SAN BENADINO, CARACAS, VENEZUALA , CENTRO, PODOLOGICO,  COP">
     <title>COP- CENTRO TRAUMATOLOGO SAN BERNARDINO, MEDICOS EN TRAUMATOLOGIA - EXAMENES Y CIRUGIA DE TRAUMA - CLINICA  PODOLOGICO
 </title>
-@endsection
+
 @section("content")
+
+@include('sweetalert::alert')
+
   <div id="accordionExample">
 
    
@@ -248,49 +249,19 @@
 
 <div class="p-1 w-100"></div>
 
-<div class="border rounded" style="padding: 19px;">
-<form>
-  <div class="form-group">
-    <label for="exampleFormControlTextarea1"><b>Barra de preguntas y respuestas:</b></label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="overflow:auto;resize:none"></textarea>
-  </div>
-  <div class="form-group">
-    <input type="checkbox"> Acepto los Términos y Condiciones
-  </div>
-    <div class="form-group">
-        <button type="button" onclick="return mensajepr()" class="btn btn-primary">ENVIAR</button>
-  </div>
-</form>
+
 <div class="p-2"></div>
-<div class="row">
-    <div class="col-12 rounded border">
-        <label for="" class="text-justify"><b>Maria Perez: </b>¿Tienen servicio de emergencia las 24 horas?</label>
-    </div>
-    <div class="col-12 table-primary rounded border">
-        <label for="" class="text-justify"><b>Respuesta: </b>Si, las 24 horas.</label>
-    </div>
-    <div class="p-2"></div>
-    <div class="col-12 rounded border">
-        <label for="" class="text-justify"><b>Rafael Guzman: </b>¿Donde estan ubicados?</label>
-    </div>
-    <div class="col-12 table-primary rounded border">
-        <label for="" class="text-justify"><b>Respuesta: </b>Av. Eraso, Centro Ortopédico Podológico, San Bernardino, Caracas.</label>
-    </div>
-    <div class="p-2"></div>
-    <div class="col-12 rounded border">
-        <label for="" class="text-justify"><b>Reymon Ayala: </b>¿Hasta que hora trabaja el doctor Mario Hernandez?</label>
-    </div>
-    <div class="col-12 table-primary rounded border">
-        <label for="" class="text-justify"><b>respuesta: </b>Buen dia, de 8:00am a 4:00pm.</label>
-    </div>
-</div>
-</div>
+
+@include('partials/preguntas')
+
+
+
 
 @endsection
 
 @section("footer")
 
-Centro Traumatologo De San Bernardino - Servicio Medico Especialista En Tramatologia De Pie Y Manos - Emergencias Traumatolagas - Cirugias De Emergencia Traumatologas - Medicos Traumatologos Con Amplia Trayectoria - Contamos Con Quirofano Y Hospilaizacion Para Pacientes Con Afeciones Tramatologas - Clinica Traumatologa Podologica En San Bernardino - Examenes Traumatologicos 24 Horas - Citas De Traumatologia - Consultorios Para Citas De Traumatoilogia - Sala De Emergencia En Traumatologia - Sala De Yeso Y Protesis - Centro Medico En Traumatologia Y Ortopedia - Medicos Traumatologos Quirurgicos En San Bernardino - Especialistas En Traumatologia - Cirugia Y Ortopedia De Columna, Pies, Manos, Brazos, Rodillas Y Todo El Aparato Locomotor - Unidad De Traumatologia En Caracas - Clinica Traumatologia En Caracas Venezuela - Medicos Traumatologicos Y Ortopedia En Caracas Venezuela - Clinica Podologica Y Ortopedicas En Caracas - Tarumatologos En Columnas, Pies Y Manos - Medicos Cirujanos Traumatologicos En Caracas Venezuela - Emergencia Medica Podologica - Traumas Quirurgicas Traumatologicas En San Benadino Caracas Venezuala - Centro Podologico - Cop.
+CENTRO TRAUMATOLOGO DE SAN BERNARDINO - SERVICIO MEDICO ESPECIALISTA EN TRAMATOLOGIA DE PIE Y MANOS - EMERGENCIAS TRAUMATOLAGAS - CIRUGIAS DE EMERGENCIA TRAUMATOLOGAS - MEDICOS TRAUMATOLOGOS CON AMPLIA TRAYECTORIA - CONTAMOS CON QUIROFANO Y HOSPILAIZACION PARA PACIENTES CON AFECIONES TRAMATOLOGAS - CLINICA TRAUMATOLOGA PODOLOGICA EN SAN BERNARDINO - EXAMENES TRAUMATOLOGICOS 24 HORAS - CITAS DE TRAUMATOLOGIA - CONSULTORIOS PARA CITAS DE TRAUMATOILOGIA - SALA DE EMERGENCIA EN TRAUMATOLOGIA - SALA DE YESO Y PROTESIS - CENTRO MEDICO EN TRAUMATOLOGIA Y ORTOPEDIA - MEDICOS TRAUMATOLOGOS QUIRURGICOS EN SAN BERNARDINO - ESPECIALISTAS EN TRAUMATOLOGIA - CIRUGIA Y ORTOPEDIA DE COLUMNA, PIES, MANOS, BRAZOS, RODILLAS Y TODO EL APARATO LOCOMOTOR - UNIDAD DE TRAUMATOLOGIA EN CARACAS - CLINICA TRAUMATOLOGIA EN CARACAS VENEZUELA - MEDICOS TRAUMATOLOGICOS Y ORTOPEDIA EN CARACAS VENEZUELA - CLINICA PODOLOGICA Y ORTOPEDICAS EN CARACAS - TARUMATOLOGOS EN COLUMNAS, PIES Y MANOS - MEDICOS CIRUJANOS TRAUMATOLOGICOS EN CARACAS VENEZUELA - EMERGENCIA MEDICA PODOLOGICA - TRAUMAS QUIRURGICAS TRAUMATOLOGICAS EN SAN BENADINO CARACAS VENEZUALA - CENTRO PODOLOGICO - COP.
 
 @endsection
 

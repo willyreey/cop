@@ -1,5 +1,4 @@
 @extends('template')
-@section("meta")
 
     <meta name="description" content="CENTRO NEUROFISIOLOGICO DE SAN BERNARDINO, SERVICIO MEDICO ESPECIALISTA EN NEUROFISIOLOGÍA, EMERGENCIAS NEUROFISIOLOGICAS, MEDICOS NEUROFISIOLOGICOS CON AMPLIA TRAYECTORIA, CONTAMOS CON HOSPILAIZACION PARA PACIENTES CON AFECIONES NEUROFISIOLOGICAS, CLINICA NEUROFISILOGICA EN SAN BERNARDINO, EXAMENES NEUROFISIOLOGICOS 24 HORAS, CITAS DE NEUROFISIOLOGÍA, CONSULTORIOS PARA CITAS DE NEUROFISIOLOGÍA, SALA DE EMERGENCIA EN NEUROFISIOLOGÍA , CENTRO MEDICO EN NEUROFISIOLOGÍA, MEDICOS NEUROFISIOLOGICOS QUIRURGICOS EN SAN BERNARDINO, ESPECIALISTAS EN NEUROFISIOLOGÍA,  UNIDAD DE NEUROFISIOLOGÍA EN CARACAS, CLINICA NEUROFISIOLOGÍA EN CARACAS VENEZUELA, MEDICOS NEUROFISIOLOGICOS EN CARACAS VENEZUELA, CLINICA PODOLOGICA Y ORTOPEDICAS EN CARACAS, NEUROFISIOLOGICOS EN CARACAS, MEDICOS  NEUROFISIOLOGICOS EN CARACAS VENEZUELA, EMERGENCIA MEDICA PODOLOGICA, NEUROFISIOLOGICOS EN SAN BENADINO CARACAS VENEZUALA, CENTRO PODOLOGICO, COP.">
 
@@ -7,7 +6,7 @@
 
     <title>COP- CENTRO DE NEUROFISIOLOGÍA SAN BERNARDINO, MEDICOS EN NEUROFISIOLOGÍA - CLINICA  PODOLOGICO</title>
 
-@endsection
+
 @section("content")
 
         <div class="row">
@@ -89,46 +88,61 @@
     </div>
 </section>
 
+
 <div class="p-1 w-100"></div>
 <hr>
 
 <div class="border rounded" style="padding: 19px;">
-<form>
-  <div class="form-group">
-    <label for="exampleFormControlTextarea1"><b>Barra de preguntas y respuestas:</b></label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="overflow:auto;resize:none"></textarea>
-  </div>
-  <div class="form-group">
+    <form action="{{route('neurofisiologia')}}" method="POST">
+        @csrf
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1"><b>Barra de preguntas y respuestas:</b></label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="overflow:auto;resize:none" name="pregunta"></textarea>
+      </div>
+      <div class="form-group">
     <input type="checkbox"> Acepto los Términos y Condiciones
   </div>
     <div class="form-group">
-        <button type="button" onclick="return mensajepr()" class="btn btn-primary">ENVIAR</button>
-  </div>
-</form>
+           @guest
+        @if (Route::has('register'))
+            <button class="btn btn-primary" disabled style="margin-right: 10px">ENVIAR</button><b>Debe estar <a href="{{ route('register') }}">Registrado</a> para poder realizar un comentario</b>
+        @endif
+    
 
-<div class="p-2"></div>
-<div class="row">
-    <div class="col-12 rounded border">
-      <label for="" class="text-justify"><b>Cesar Chavarria: </b>¿Tienen consultas de neurofisiología en la mañana?</label>
+
+                            
+         @else
+            <button type="submit" class="btn btn-primary">ENVIAR</button>
+
+     @endguest
+        
+  </div>
+
+  <div class="scroll col-lg-12">
+        
+    @forelse ($sql as $dato)
+    <div class="preguntas">  
+      <b style="margin-left: 10px">{{ $dato->usuario }}: </b>{{$dato->pregunta}} <br>    
     </div>
-    <div class="col-12 table-primary rounded border">
-        <label for="" class="text-justify"><b>Respuesta: </b>Buen día, si.</label>
-    </div>
+  
+    @empty
+    <center>
+        <br><br><br>
+        <b class="no-comments">No hay comentarios</b>
+        <style>
+            .scroll:hover{
+                filter: blur(1px);
+                transition: 0.7s;
+            }
+        </style>
+    </center>
+  
+  @endforelse
+
     <div class="p-2"></div>
-    <div class="col-12 rounded border">
-        <label for="" class="text-justify"><b>Genesis Oviedo: </b>¿Donde estan ubicados?</label>
-    </div>
-    <div class="col-12 table-primary rounded border">
-        <label for="" class="text-justify"><b>Respuesta: </b>Av. Eraso, Centro Ortopédico Podológico, San Bernardino, Caracas.</label>
-    </div>
-    <div class="p-2"></div>
-    <div class="col-12 rounded border">
-        <label for="" class="text-justify"><b>Naileth Belisario: </b>¿Cual es el horario de las consultas?</label>
-    </div>
-    <div class="col-12 table-primary rounded border">
-        <label for="" class="text-justify"><b>respuesta: </b>Buen dia, de 8:00am a 4:00pm.</label>
-    </div>
+
 </div>
+</form>
 </div>
 
 <div class="p-1 w-100"></div>
@@ -136,5 +150,5 @@
 @endsection
 
 @section("footer")
-Centro Neurofisiologico De San Bernardino - Servicio Medico Especialista En Neurofisiología - Emergencias Neurofisiologicas - Medicos Neurofisiologicos Con Amplia Trayectoria - Contamos Con Hospilaizacion Para Pacientes Con Afeciones Neurofisiologicas - Clinica Cardiologica En San Bernardino - Examenes Neurofisiologicos 24 Horas - Citas De Neurofisiología - Consultorios Para Citas De Neurofisiología - Sala De Emergencia En Neurofisiología  - Centro Medico En Neurofisiología - Medicos Neurofisiologicos Quirurgicos En San Bernardino - Especialistas En Neurofisiología -  Unidad De Neurofisiología En Caracas - Clinica Neurofisiología En Caracas Venezuela - Medicos Neurofisiologicos En Caracas Venezuela - Clinica Podologica Y Ortopedicas En Caracas - Neurofisiologicos En Caracas- Medicos  Neurofisiologicos En Caracas Venezuela - Emergencia Medica Podologica - Neurofisiologicos En San Benadino Caracas Venezuala - Centro Podologico - Cop.
+CENTRO NEUROFISIOLOGICO DE SAN BERNARDINO - SERVICIO MEDICO ESPECIALISTA EN NEUROFISIOLOGÍA - EMERGENCIAS NEUROFISIOLOGICAS - MEDICOS NEUROFISIOLOGICOS CON AMPLIA TRAYECTORIA - CONTAMOS CON HOSPILAIZACION PARA PACIENTES CON AFECIONES NEUROFISIOLOGICAS - CLINICA CARDIOLOGICA EN SAN BERNARDINO - EXAMENES NEUROFISIOLOGICOS 24 HORAS - CITAS DE NEUROFISIOLOGÍA - CONSULTORIOS PARA CITAS DE NEUROFISIOLOGÍA - SALA DE EMERGENCIA EN NEUROFISIOLOGÍA  - CENTRO MEDICO EN NEUROFISIOLOGÍA - MEDICOS NEUROFISIOLOGICOS QUIRURGICOS EN SAN BERNARDINO - ESPECIALISTAS EN NEUROFISIOLOGÍA -  UNIDAD DE NEUROFISIOLOGÍA EN CARACAS - CLINICA NEUROFISIOLOGÍA EN CARACAS VENEZUELA - MEDICOS NEUROFISIOLOGICOS EN CARACAS VENEZUELA - CLINICA PODOLOGICA Y ORTOPEDICAS EN CARACAS - NEUROFISIOLOGICOS EN CARACAS- MEDICOS  NEUROFISIOLOGICOS EN CARACAS VENEZUELA - EMERGENCIA MEDICA PODOLOGICA - NEUROFISIOLOGICOS EN SAN BENADINO CARACAS VENEZUALA - CENTRO PODOLOGICO - COP.
 @endsection

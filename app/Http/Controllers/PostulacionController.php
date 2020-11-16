@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 use App\Mail\PostulacionMail;
 use App\Postulacion as Postulacion;
 use Alert;
@@ -15,10 +16,26 @@ class PostulacionController extends Controller
     public function store(Request $request)
 {
 
-	// $validatedData = $request->validate([
- //        'file' => 'required|mimes:jpg,jpeg,bmp,png',
- //        'nombre' => 'required',
- //    ]);
+            $validator = Validator::make($request->all(), [
+            'file' => 'required|mimes:jpg,jpeg,bmp,png|max:3072',
+            'nombre' => 'required',
+            'apellido' => 'required',
+            'direccion' => 'required',
+            'numero_telefonico' => 'required|min:10',
+            'numero_habitacion' => 'required|min:10',
+            'email' => 'required',
+            'habilidades' => 'required',
+            'ref_nombre' => 'required',
+            'ref_apellido' => 'required',
+            'ref_telefono' => 'required',
+            
+        ]);
+
+        if ($validator->fails()) {
+            alert()->error('Falló el envio de la Postulación','Debe enviar una imagen (jpg,jpeg,bmp o png) menor a 3MB y completar todos los campos marcados con *');
+        return redirect('/');
+                        
+        }
     
        $file = $request->file('file');
        $name = $request->input('nombre');

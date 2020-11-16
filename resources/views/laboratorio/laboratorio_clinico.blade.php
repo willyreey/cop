@@ -35,43 +35,88 @@
         </div>
     </div>
     <div class="p-2"></div>
-<div class="border rounded" style="padding: 19px;">
-<form>
-  <div class="form-group">
-    <label for="exampleFormControlTextarea1"><b>Barra de preguntas y respuestas:</b></label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="overflow:auto;resize:none"></textarea>
-  </div>
-  <div class="form-group">
-    <input type="checkbox"> Acepto los Términos y Condiciones
+
+    <style>
+
+        .scroll{
+            background: white;
+            overflow-y: scroll;
+            height: 250px;
+        }
+      
+        .preguntas{
+            background: skyblue;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+
+        .scroll::-webkit-scrollbar {
+      width: 7px;
+    }
+
+  .scroll::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 7px;
+  }
+  
+  .scroll::-webkit-scrollbar-thumb {
+    background-color: rgb(219, 217, 217);
+    border-radius: 10px;
+  }
+      
+      </style>
+
+    <div class="border rounded" style="padding: 19px;">
+        <form action="{{route('laboratorio_medico')}}" method="POST">
+            @csrf
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1"><b>Barra de preguntas y respuestas:</b></label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="overflow:auto;resize:none" name="pregunta"></textarea>
+          </div>
+          <div class="form-group">
+                <input type="checkbox"> Acepto los Términos y Condiciones
   </div>
     <div class="form-group">
-        <button type="button" class="btn btn-primary">ENVIAR</button>
+           @guest
+        @if (Route::has('register'))
+            <button class="btn btn-primary" disabled style="margin-right: 10px">ENVIAR</button><b>Debe estar <a href="{{ route('register') }}">Registrado</a> para poder realizar un comentario</b>
+        @endif
+    
+
+
+                            
+         @else
+            <button type="submit" class="btn btn-primary">ENVIAR</button>
+
+     @endguest
+        
   </div>
+
+  <div class="scroll col-lg-12">
+        
+    @forelse ($sql as $dato)
+    <div class="preguntas">  
+      <b style="margin-left: 10px">{{ $dato->usuario }}: </b>{{$dato->pregunta}} <br>    
+    </div>
+  
+    @empty
+    <center>
+        <br><br><br>
+        <b class="no-comments">No hay comentarios</b>
+        <style>
+            .scroll:hover{
+                filter: blur(1px);
+                transition: 0.7s;
+            }
+        </style>
+    </center>
+  
+  @endforelse
+
+    <div class="p-2"></div>
+
+</div>
 </form>
-<div class="p-2"></div>
-<div class="row">
-    <div class="col-12 rounded border">
-        <label for="" class="text-justify"><b>Vincente Oropeza: </b>¿Hacen examen de Hematologia?</label>
-    </div>
-    <div class="col-12 table-primary rounded border">
-        <label for="" class="text-justify"><b>Respuesta: </b>Buen día, si..</label>
-    </div>
-    <div class="p-2"></div>
-    <div class="col-12 rounded border">
-        <label for="" class="text-justify"><b>Pablo Escobar: </b>¿Debo estar en ayunas para un examen de rutina?</label>
-    </div>
-    <div class="col-12 table-primary rounded border">
-        <label for="" class="text-justify"><b>Respuesta: </b>Buen día, depende del examen.</label>
-    </div>
-    <div class="p-2"></div>
-    <div class="col-12 rounded border">
-        <label for="" class="text-justify"><b>Mario Silva: </b>¿Hasta que hora trabaja el Juan Lopez?</label>
-    </div>
-    <div class="col-12 table-primary rounded border">
-        <label for="" class="text-justify"><b>respuesta: </b>Buen dia, de 8:00am a 4:00pm.</label>
-    </div>
-</div>
-</div>
 
 @endsection
 

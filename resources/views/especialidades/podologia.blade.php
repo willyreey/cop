@@ -1,12 +1,11 @@
 @extends('template')
-@section("meta")
 
     <meta name="description" content="Podología Médica, Podología Pediátrica, Podología en San Bernardino, Podología en Caracas, Centro de Podología en Caracas, Podología en Caracas, Podología COP, Doctores Podologos, Medicos Podologos, Mejor Podologo de Venezuela, Podologo en Caracas, Podologos en San Bernardino, Podologos Infantiles, Especialidad Podología, Ortopedía Médica, Ortopedía Pediátrica, Ortopedía en San Bernardino, Ortopedía en Caracas, Centro de Ortopedía en Caracas, Ortopedía en Caracas, Ortopedía COP, Doctores Ortopedicos, Medicos Ortopedicos, Mejor Ortopedico de Venezuela, Ortopedico en Caracas, Ortopedicos en San Bernardino, Ortopedicos Infantiles, Especialidad Ortopedía.">
 
      <meta name="keywords" content="CENTRO, PODOLOGICO,SAN BERNADINO, SERVICIO, MEDICO, ESPECIALISTA, PODOLOGÍA, PIE Y MANOS, EMERGENCIAS, PODOLOGICA, CIRUGIAS, EMERGENCIA, PODOLOGICAS, MEDICOS, PODOLOGICOS, CLINICA, PODOLOGICA, PODOLOGICA, SAN BERNARDINO, CITAS, PODOLOGÍA, CONSULTORIOS, CITAS,PODOLOGÍA, SALA DE EMERGENCIA, PODOLOGÍA, SALA DE YESO Y PROTESIS, CENTRO, MEDICO, PODOLOGÍA,  MEDICOS, PODOLOGICOS, QUIRURGICOS,  ESPECIALISTAS, PODOLOGÍA, CIRUGIA, COLUMNA, PIES, MANOS, BRAZOS, RODILLAS, UNIDAD, PODOLOGÍA, CARACAS, VENEZUELA, CLINICA, PODOLOGÍA, CARACAS, VENEZUELA, MEDICOS, PODOLOGICOS, PODOLOGICOS EN CARACAS VENEZUELA- CLINICA PODOLOGICA, CARACAS,PODOLOGICOS,MEDICOS, CIRUJANOS, PODOLOGICOS, CARACAS - VENEZUELA, EMERGENCIA, MEDICA, PODOLOGICA, TRAUMA, QUIRURGICAS, PODOLOGICOS, SAN BENADINO, CARACAS, VENEZUALA , CENTRO, PODOLOGICO,  COP">
 
     <title>COP- CENTRO PODOLOGICO SAN BERNARDINO, MEDICOS EN PODOLOGÍA - CLINICA  PODOLOGICO</title>
-@endsection
+
 @section("content")
 
 <div class="row">
@@ -86,45 +85,61 @@
     </div>
 </section>
 
+
 <div class="p-1 w-100"></div>
 <hr>
 
 <div class="border rounded" style="padding: 19px;">
-<form>
-  <div class="form-group">
-    <label for="exampleFormControlTextarea1"><b>Barra de preguntas y respuestas:</b></label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="overflow:auto;resize:none"></textarea>
-  </div>
-  <div class="form-group">
+    <form action="{{route('podologia')}}" method="POST">
+        @csrf
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1"><b>Barra de preguntas y respuestas:</b></label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="overflow:auto;resize:none" name="pregunta"></textarea>
+      </div>
+      <div class="form-group">
     <input type="checkbox"> Acepto los Términos y Condiciones
   </div>
     <div class="form-group">
-        <button type="button" onclick="return mensajepr()" class="btn btn-primary">ENVIAR</button>
+           @guest
+        @if (Route::has('register'))
+            <button class="btn btn-primary" disabled style="margin-right: 10px">ENVIAR</button><b>Debe estar <a href="{{ route('register') }}">Registrado</a> para poder realizar un comentario</b>
+        @endif
+    
+
+
+                            
+         @else
+            <button type="submit" class="btn btn-primary">ENVIAR</button>
+
+     @endguest
+        
   </div>
-</form>
-<div class="p-2"></div>
-<div class="row">
-    <div class="col-12 rounded border">
-        <label for="" class="text-justify"><b>Cesar Chavarria: </b>¿Donde puedo reservar una consulta?</label>
+
+  <div class="scroll col-lg-12">
+        
+    @forelse ($sql as $dato)
+    <div class="preguntas">  
+      <b style="margin-left: 10px">{{ $dato->usuario }}: </b>{{$dato->pregunta}} <br>    
     </div>
-    <div class="col-12 table-primary rounded border">
-        <label for="" class="text-justify"><b>Respuesta: </b>Buen día, en nuestra seccion de ''Solicitud de citas''.</label>
-    </div>
+  
+    @empty
+    <center>
+        <br><br><br>
+        <b class="no-comments">No hay comentarios</b>
+        <style>
+            .scroll:hover{
+                filter: blur(1px);
+                transition: 0.7s;
+            }
+        </style>
+    </center>
+  
+  @endforelse
+
     <div class="p-2"></div>
-    <div class="col-12 rounded border">
-        <label for="" class="text-justify"><b>Genesis Oviedo: </b>¿Hacen placas de tobillos?</label>
-    </div>
-    <div class="col-12 table-primary rounded border">
-        <label for="" class="text-justify"><b>Respuesta: </b>Buen dia, si.</label>
-    </div>
-    <div class="p-2"></div>
-    <div class="col-12 rounded border">
-        <label for="" class="text-justify"><b>Naileth Belisario: </b>¿Cual es el horario de las consultas?</label>
-    </div>
-    <div class="col-12 table-primary rounded border">
-        <label for="" class="text-justify"><b>respuesta: </b>Buen dia, de 8:00am a 4:00pm.</label>
-    </div>
+
 </div>
+</form>
 </div>
 
 <div class="p-1 w-100"></div>

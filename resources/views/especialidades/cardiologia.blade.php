@@ -1,12 +1,11 @@
 @extends('template')
-@section("meta")
 
     <meta name="description" content="CENTRO CARDIOLOGICO DE SAN BERNARDINO, SERVICIO MEDICO ESPECIALISTA EN CARDIOLOGÍA, EMERGENCIAS CARDIOLOGICAS, MEDICOS CARDIOLOGICOS CON AMPLIA TRAYECTORIA, CONTAMOS CON HOSPILAIZACION PARA PACIENTES CON AFECIONES CARDIOLOGICAS, CLINICA CARDIOLOGICA EN SAN BERNARDINO, EXAMENES CARDIOLOGICOS 24 HORAS, CITAS DE CARDIOLOGÍA, CONSULTORIOS PARA CITAS DE CARDIOLOGÍA, SALA DE EMERGENCIA EN CARDIOLOGÍA , CENTRO MEDICO EN CARDIOLOGÍA, MEDICOS CARDIOLOGICOS QUIRURGICOS EN SAN BERNARDINO, ESPECIALISTAS EN CARDIOLOGÍA,  UNIDAD DE CARDIOLOGÍA EN CARACAS, CLINICA CARDIOLOGÍA EN CARACAS VENEZUELA, MEDICOS CARDIOLOGICOS EN CARACAS VENEZUELA, CLINICA PODOLOGICA Y ORTOPEDICAS EN CARACAS, CARDIOLOGICOS EN CARACAS, MEDICOS  CARDIOLOGICOS EN CARACAS VENEZUELA, EMERGENCIA MEDICA PODOLOGICA, CARDIOLOGICOS EN SAN BENADINO CARACAS VENEZUALA, CENTRO PODOLOGICO, COP.">
 
      <meta name="keywords" content="CENTRO, CARDIOLOGICO,SAN BERNADINO, SERVICIO, MEDICO, ESPECIALISTA, CARDIOLOGÍA, PIE Y MANOS, EMERGENCIAS, CARDIOLOGICA, CIRUGIAS, EMERGENCIA, CARDIOLOGICAS, MEDICOS, CARDIOLOGICOS, CLINICA, CARDIOLOGICA, PODOLOGICA, SAN BERNARDINO, CITAS, CARDIOLOGÍA, CONSULTORIOS, CITAS,CARDIOLOGÍA, SALA DE EMERGENCIA, CARDIOLOGÍA, SALA DE YESO Y PROTESIS, CENTRO, MEDICO, CARDIOLOGÍA,  MEDICOS, CARDIOLOGICOS, QUIRURGICOS,  ESPECIALISTAS, CARDIOLOGÍA, CIRUGIA, COLUMNA, PIES, MANOS, BRAZOS, RODILLAS, UNIDAD, CARDIOLOGÍA, CARACAS, VENEZUELA, CLINICA, CARDIOLOGÍA, CARACAS, VENEZUELA, MEDICOS, CARDIOLOGICOS, CARDIOLOGICOS EN CARACAS VENEZUELA- CLINICA CARDIOLOGICA, CARACAS,CARDIOLOGICOS,MEDICOS, CIRUJANOS, CARDIOLOGICOS, CARACAS - VENEZUELA, EMERGENCIA, MEDICA, PODOLOGICA, TRAUMA, QUIRURGICAS, CARDIOLOGICOS, SAN BENADINO, CARACAS, VENEZUALA , CENTRO, PODOLOGICO,  COP">
 
     <title>COP- CENTRO DE CARDIOLOGÍA SAN BERNARDINO, MEDICOS EN CARDIOLOGÍA - CLINICA  PODOLOGICO</title>
-@endsection
+
 @section("content")
 
 <div class="row">
@@ -88,46 +87,62 @@
     </div>
 </section>
 
+
 <div class="p-1 w-100"></div>
 <hr>
 
 <div class="border rounded" style="padding: 19px;">
-<form>
+<form action="{{route('cardiologia')}}" method="POST">
+    @csrf
   <div class="form-group">
     <label for="exampleFormControlTextarea1"><b>Barra de preguntas y respuestas:</b></label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="overflow:auto;resize:none"></textarea>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="overflow:auto;resize:none" name="pregunta"></textarea>
   </div>
   <div class="form-group">
     <input type="checkbox"> Acepto los Términos y Condiciones
   </div>
     <div class="form-group">
-        <button type="button" onclick="return mensajepr()" class="btn btn-primary">ENVIAR</button>
+           @guest
+        @if (Route::has('register'))
+            <button class="btn btn-primary" disabled style="margin-right: 10px">ENVIAR</button><b>Debe estar <a href="{{ route('register') }}">Registrado</a> para poder realizar un comentario</b>
+        @endif
+    
+
+
+                            
+         @else
+            <button type="submit" class="btn btn-primary">ENVIAR</button>
+
+     @endguest
+        
   </div>
+
+  <div class="scroll col-lg-12">
+        
+    @forelse ($sql as $dato)
+    <div class="preguntas">  
+      <b style="margin-left: 10px">{{ $dato->usuario }}: </b>{{$dato->pregunta}} <br>    
+    </div>
+  
+    @empty
+    <center>
+        <br><br><br>
+        <b class="no-comments">No hay comentarios</b>
+        <style>
+            .scroll:hover{
+                filter: blur(1px);
+                transition: 0.7s;
+            }
+        </style>
+    </center>
+  
+  @endforelse
+
+    <div class="p-2"></div>
+
+</div>
 </form>
 
-<div class="p-2"></div>
-<div class="row">
-    <div class="col-12 rounded border">
-      <label for="" class="text-justify"><b>Cesar Chavarria: </b>¿Tienen consultas de cardiología en la mañana?</label>
-    </div>
-    <div class="col-12 table-primary rounded border">
-        <label for="" class="text-justify"><b>Respuesta: </b>Buen día, si.</label>
-    </div>
-    <div class="p-2"></div>
-    <div class="col-12 rounded border">
-        <label for="" class="text-justify"><b>Genesis Oviedo: </b>¿Donde estan ubicados?</label>
-    </div>
-    <div class="col-12 table-primary rounded border">
-        <label for="" class="text-justify"><b>Respuesta: </b>Av. Eraso, Centro Ortopédico Podológico, San Bernardino, Caracas.</label>
-    </div>
-    <div class="p-2"></div>
-    <div class="col-12 rounded border">
-        <label for="" class="text-justify"><b>Naileth Belisario: </b>¿Cual es el horario de las consultas?</label>
-    </div>
-    <div class="col-12 table-primary rounded border">
-        <label for="" class="text-justify"><b>respuesta: </b>Buen dia, de 8:00am a 4:00pm.</label>
-    </div>
-</div>
 </div>
 
 <div class="p-1 w-100"></div>
@@ -136,6 +151,19 @@
 
 @section("footer")
 
-Centro Cardiologico De San Bernardino - Servicio Medico Especialista En Cardiología - Emergencias Cardiologicas - Medicos Cardiologicos Con Amplia Trayectoria - Contamos Con Hospilaizacion Para Pacientes Con Afeciones Cardiologicas - Clinica Cardiologica En San Bernardino - Examenes Cardiologicos 24 Horas - Citas De Cardiología - Consultorios Para Citas De Cardiología - Sala De Emergencia En Cardiología - Centro Medico En Cardiología - Medicos Cardiologicos Quirurgicos En San Bernardino - Especialistas En Cardiología - Unidad De Cardiología En Caracas - Clinica Cardiología En Caracas Venezuela - Medicos Cardiologicos En Caracas Venezuela - Clinica Podologica Y Ortopedicas En Caracas - Cardiologicos En Caracas- Medicos Cardiologicos En Caracas Venezuela - Emergencia Medica Podologica - Cardiologicos En San Benadino Caracas Venezuala - Centro Podologico - Cop.
+CENTRO CARDIOLOGICO DE SAN BERNARDINO - SERVICIO MEDICO ESPECIALISTA EN CARDIOLOGÍA - EMERGENCIAS CARDIOLOGICAS - MEDICOS CARDIOLOGICOS CON AMPLIA TRAYECTORIA - CONTAMOS CON HOSPILAIZACION PARA PACIENTES CON AFECIONES CARDIOLOGICAS - CLINICA CARDIOLOGICA EN SAN BERNARDINO - EXAMENES CARDIOLOGICOS 24 HORAS - CITAS DE CARDIOLOGÍA - CONSULTORIOS PARA CITAS DE CARDIOLOGÍA - SALA DE EMERGENCIA EN CARDIOLOGÍA  - CENTRO MEDICO EN CARDIOLOGÍA - MEDICOS CARDIOLOGICOS QUIRURGICOS EN SAN BERNARDINO - ESPECIALISTAS EN CARDIOLOGÍA -  UNIDAD DE CARDIOLOGÍA EN CARACAS - CLINICA CARDIOLOGÍA EN CARACAS VENEZUELA - MEDICOS CARDIOLOGICOS EN CARACAS VENEZUELA - CLINICA PODOLOGICA Y ORTOPEDICAS EN CARACAS - CARDIOLOGICOS EN CARACAS- MEDICOS  CARDIOLOGICOS EN CARACAS VENEZUELA - EMERGENCIA MEDICA PODOLOGICA - CARDIOLOGICOS EN SAN BENADINO CARACAS VENEZUALA - CENTRO PODOLOGICO - COP.
 
 @endsection
+
+    @guest
+        @if (Route::has('register'))
+
+        @endif
+    
+
+
+                            
+         @else
+
+
+     @endguest

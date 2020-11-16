@@ -1,5 +1,4 @@
 @extends('template')
-@section("meta")
 
     <meta name="description" content="CENTRO PEDIATRICO DE SAN BERNARDINO, SERVICIO MEDICO ESPECIALISTA EN PEDIATRÍA, EMERGENCIAS PEDIATRICAS, MEDICOS PEDIATRICOS CON AMPLIA TRAYECTORIA, CONTAMOS CON HOSPILAIZACION PARA PACIENTES CON AFECIONES PEDIATRICAS, CLINICA PEDIATRICA EN SAN BERNARDINO, EXAMENES PEDIATRICOS 24 HORAS, CITAS DE PEDIATRÍA, CONSULTORIOS PARA CITAS DE PEDIATRÍA, SALA DE EMERGENCIA EN PEDIATRÍA , CENTRO MEDICO EN PEDIATRÍA, MEDICOS PEDIATRICOS QUIRURGICOS EN SAN BERNARDINO, ESPECIALISTAS EN PEDIATRÍA,  UNIDAD DE PEDIATRÍA EN CARACAS, CLINICA PEDIATRÍA EN CARACAS VENEZUELA, MEDICOS PEDIATRICOS EN CARACAS VENEZUELA, CLINICA PODOLOGICA Y ORTOPEDICAS EN CARACAS, PEDIATRICOS EN CARACAS- MEDICOS  PEDIATRICOS EN CARACAS VENEZUELA, EMERGENCIA MEDICA PODOLOGICA, PSICOLOGICOS EN SAN BENADINO CARACAS VENEZUALA, CENTRO PODOLOGICO, COP.">
 
@@ -7,7 +6,7 @@
 
     <title>COP- CENTRO PEDIÁTRICO SAN BERNARDINO, MEDICOS EN PEDIÁTRICO - CLINICA  PODOLOGICO</title>
 
-@endsection
+
 @section("content")
 
  <div class="row">
@@ -90,48 +89,63 @@
 <div class="p-1 w-100"></div>
 <hr>
 
+
 <div class="border rounded" style="padding: 19px;">
-<form>
-  <div class="form-group">
-    <label for="exampleFormControlTextarea1"><b>Barra de preguntas y respuestas:</b></label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="overflow:auto;resize:none"></textarea>
-  </div>
-  <div class="form-group">
+    <form action="{{route('pediatria')}}" method="POST">
+        @csrf
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1"><b>Barra de preguntas y respuestas:</b></label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="overflow:auto;resize:none" name="pregunta"></textarea>
+      </div>
+      <div class="form-group">
     <input type="checkbox"> Acepto los Términos y Condiciones
   </div>
     <div class="form-group">
-        <button type="button" onclick="return mensajepr()" class="btn btn-primary">ENVIAR</button>
-  </div>
-</form>
-<div class="p-2"></div>
-<div class="row">
-    <div class="col-12 rounded border">
-       <label for="" class="text-justify"><b>Felipe Paez: </b>¿Tiene consultas para bebes de 3 meses?</label>
-    </div>
-    <div class="col-12 table-primary rounded border">
-        <label for="" class="text-justify"><b>Respuesta: </b>Buen día, si.</label>
-    </div>
-    <div class="p-2"></div>
-    <div class="col-12 rounded border">
-        <label for="" class="text-justify"><b>Genesis Oviedo: </b>¿Donde estan ubicados?</label>
-    </div>
-    <div class="col-12 table-primary rounded border">
-        <label for="" class="text-justify"><b>Respuesta: </b>Av. Eraso, Centro Ortopédico Podológico, San Bernardino, Caracas.</label>
-    </div>
-    <div class="p-2"></div>
-    <div class="col-12 rounded border">
-        <label for="" class="text-justify"><b>Naileth Belisario: </b>¿Cual es el horario de las consultas?</label>
-    </div>
-    <div class="col-12 table-primary rounded border">
-        <label for="" class="text-justify"><b>respuesta: </b>Buen dia, de 8:00am a 4:00pm.</label>
-    </div>
-</div>
-</div>
+           @guest
+        @if (Route::has('register'))
+            <button class="btn btn-primary" disabled style="margin-right: 10px">ENVIAR</button><b>Debe estar <a href="{{ route('register') }}">Registrado</a> para poder realizar un comentario</b>
+        @endif
+    
 
+
+                            
+         @else
+            <button type="submit" class="btn btn-primary">ENVIAR</button>
+
+     @endguest
+        
+  </div>
+
+  <div class="scroll col-lg-12">
+        
+    @forelse ($sql as $dato)
+    <div class="preguntas">  
+      <b style="margin-left: 10px">{{ $dato->usuario }}: </b>{{$dato->pregunta}} <br>    
+    </div>
+  
+    @empty
+    <center>
+        <br><br><br>
+        <b class="no-comments">No hay comentarios</b>
+        <style>
+            .scroll:hover{
+                filter: blur(1px);
+                transition: 0.7s;
+            }
+        </style>
+    </center>
+  
+  @endforelse
+
+    <div class="p-2"></div>
+
+</div>
+</form>
+</div>
 <div class="p-1 w-100"></div>
 
 @endsection
 
 @section("footer")
-Centro Pediatrico De San Bernardino - Servicio Medico Especialista En Pediatría - Emergencias Pediatricas - Medicos Pediatricos Con Amplia Trayectoria - Contamos Con Hospilaizacion Para Pacientes Con Afeciones Pediatricas - Clinica Pediatrica En San Bernardino - Examenes Pediatricos 24 Horas - Citas De Pediatría - Consultorios Para Citas De Pediatría - Sala De Emergencia En Pediatría  - Centro Medico En Pediatría - Medicos Pediatricos Quirurgicos En San Bernardino - Especialistas En Pediatría -  Unidad De Pediatría En Caracas - Clinica Pediatría En Caracas Venezuela - Medicos Pediatricos En Caracas Venezuela - Clinica Podologica Y Ortopedicas En Caracas - Pediatricos En Caracas- Medicos  Pediatricos En Caracas Venezuela - Emergencia Medica Podologica - Psicologicos En San Benadino Caracas Venezuela - Centro Podologico - Cop.
+CENTRO PEDIATRICO DE SAN BERNARDINO - SERVICIO MEDICO ESPECIALISTA EN PEDIATRÍA - EMERGENCIAS PEDIATRICAS - MEDICOS PEDIATRICOS CON AMPLIA TRAYECTORIA - CONTAMOS CON HOSPILAIZACION PARA PACIENTES CON AFECIONES PEDIATRICAS - CLINICA PEDIATRICA EN SAN BERNARDINO - EXAMENES PEDIATRICOS 24 HORAS - CITAS DE PEDIATRÍA - CONSULTORIOS PARA CITAS DE PEDIATRÍA - SALA DE EMERGENCIA EN PEDIATRÍA  - CENTRO MEDICO EN PEDIATRÍA - MEDICOS PEDIATRICOS QUIRURGICOS EN SAN BERNARDINO - ESPECIALISTAS EN PEDIATRÍA -  UNIDAD DE PEDIATRÍA EN CARACAS - CLINICA PEDIATRÍA EN CARACAS VENEZUELA - MEDICOS PEDIATRICOS EN CARACAS VENEZUELA - CLINICA PODOLOGICA Y ORTOPEDICAS EN CARACAS - PEDIATRICOS EN CARACAS- MEDICOS  PEDIATRICOS EN CARACAS VENEZUELA - EMERGENCIA MEDICA PODOLOGICA - PSICOLOGICOS EN SAN BENADINO CARACAS VENEZUALA - CENTRO PODOLOGICO - COP.
 @endsection
